@@ -2,7 +2,15 @@
 
 This folder named "python" contains all relevant files needed to run the regression models on each dataset in python. Each dataset should have its own ipython notebook that contains the implimentations of all relevant models. 
 
-## Steps to Run Code
+# Steps to Run Code
+
+## From Batch or Shell File
+
+1. cd into the python folder under the main directory (DS2_P2).
+1. Run the corresponding batch or shell file in the terminal. The commands are as follows: "./start_w" for windows and "./start_lm" for linux or mac.
+1. Once the script finishes running, please restart the IDE before proceeding.
+
+## Manually
 
 1. Create a virtual environment in the python directory. Many commands can be used to do this. I personally use: virtaulenv venv
 1. Activate virtaul environment. Command is normally: source venv/bin/activate for macOS/Linux. Command is normally: venv/Scripts/activate for Windows
