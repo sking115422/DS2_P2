@@ -1,0 +1,16 @@
+__pycache__
+.DS_Store
+.ipynb_checkpoints
+.metals
+.vscode
+.bsp
+bg-jobs
+global-logging
+.history3
+active.json
+venv
+venv2
+scala/scalaTion_reg_models/project
+scala/scalaTion_reg_models/target
+project
+target
