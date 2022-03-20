@@ -7,8 +7,10 @@ This folder named "python" contains all relevant files needed to run the regress
 ## From Batch or Shell File
 
 1. cd into the python folder under the main directory (DS2_P2).
-1. Run the corresponding batch or shell file in the terminal. The commands are as follows: "./start_w" for windows and "./start_lm" for linux or mac.
-1. Once the script finishes running, please restart the IDE before proceeding.
+1. Run the corresponding batch or shell file in the terminal. The commands are as follows: "./start_w.bat" for windows and "./start_lm.sh" for linux or mac.
+1. Once the script finishes running, the virtual environment needed to run the python code for this project should be setup. Please restart the IDE before proceeding.
+1. Choose a python notebook that corresponds to the dataset you are interested in. Then set the kernel to pull from the virtual enviroment that the script just created called "venv". If you are using VSCode, there should be a button on the top right of the screen that allows you to easily select the virtual environment. 
+1. Run the entire python notebook or the select parts of the notebook you are interested in. Keep in mind if you do not choose to run the entire notebook, you will at least need to load the libraries and datasets at the beginning of the notebooks for the models and selection techniques to run.
 
 ## Manually
 
