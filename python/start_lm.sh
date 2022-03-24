@@ -1,4 +1,5 @@
 
+sudo chmod +x start_lm.sh  
 rm -r venv
 python3 -m venv venv
 source venv/bin/activate
