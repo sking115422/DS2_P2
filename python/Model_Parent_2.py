@@ -156,10 +156,62 @@ def create_nn(nur_list, a_func, opt, loss_, num_dims):
 ################################################################################################
 
 
+### CROSS VALIDATION
+# Function that preforms cross validation only for the input model and given set of features
+# Outputs a summary to show average r2_bar, r2_cv, AIC, and BIC for each fold of the cross validation
+def nnCrossValidation(X, y, folds, epo, bs, nur_list, a_func, opt, loss_):
+    
+        # Splitting data in folds and appropriate sets for training and testing
+        ret_list = splitData(X, y, folds)
+        
+        r2_list = []
+        r2_bar_list = []
+        aic_val_list = []
+        bic_val_list = []
+        
+        # Iterating through each fold in cross validation. In this case there are generally 5 or 10 folds
+        for fold in ret_list:
+            
+            X_train = fold[0]
+            X_test = fold[1]
+            y_train = fold[2]
+            y_test = fold[3]
+            
+            # Creating new nn model each iteration for varying number of input dimensions
+            model = create_nn(nur_list, a_func, opt, loss_, X_train.shape[1])
+            
+            # Training and testing model 
+            model.fit(X_train, y_train, epochs = epo, batch_size = bs)
+            y_pred = model.predict(X_test)
+            
+            # Calculating r2, r2_bar, AIC, and BIC for each fold and storing
+            r2 = r2_score(y_test, y_pred)
+            r2_list.append(r2)
+            r2_bar_list.append(calc_r2_bar(len(y), X.shape[1], r2))
+            aic_val_list.append(calc_aic(y_test, y_pred, X.shape[1]))
+            bic_val_list.append(calc_aic(y_test, y_pred, X.shape[1]))
+            
+        # Averaging values for each fold and storing
+        r2_cv_list_final = np.average(r2_list)
+        r2_bar_list_final = np.average(r2_bar_list)
+        aic_list_final = np.average(aic_val_list)
+        bic_list_final = np.average(bic_val_list)
+        
+        # Printing dataframe to console as formated table 
+        print()
+        print("FORWARD SELECTION SUMMARY TABLE:")
+        print()
+
+        t = pt(['r2_cv', 'r2_bar', 'AIC', 'BIC'])
+        t.add_row([r2_cv_list_final, r2_bar_list_final, aic_list_final, bic_list_final])
+        print(t)
+
+
+        
 ### FORWARD SELECTION
 # Function that preforms forward feature selection favoring those feature with the lowest p-values
 # Outputs a summary, report table, and graph to show change in r2_bar, r2_cv, AIC, and BIC as input features are changed
-def nnForwardSelection(X, y, epo, bs, nur_list, a_func, opt, loss_):
+def nnForwardSelection(X, y, folds, epo, bs, nur_list, a_func, opt, loss_):
 
     #Starting with a temporary empty feature dataframe
     x_tmp = pd.DataFrame()
@@ -189,14 +241,14 @@ def nnForwardSelection(X, y, epo, bs, nur_list, a_func, opt, loss_):
         x_tmp = pd.concat([x_tmp, X.iloc[:, each]], axis=1)
         
         # Splitting data in folds and appropriate sets for training and testing
-        ret_list = splitData(x_tmp, y, 5)
+        ret_list = splitData(x_tmp, y, folds)
         
         r2_list = []
         r2_bar_list = []
         aic_val_list = []
         bic_val_list = []
         
-        # Iterating through each fold in cross validation. In this case there are 5 folds
+        # Iterating through each fold in cross validation. In this case there are generally 5 or 10 folds
         for fold in ret_list:
             
             X_train = fold[0]
@@ -268,7 +320,7 @@ def nnForwardSelection(X, y, epo, bs, nur_list, a_func, opt, loss_):
 ### BACKWARD SELECTION
 # Function that preforms backward feature selection favoring those feature with the lowest p-values
 # Outputs a summary, report table, and graph to show change in r2_bar, r2_cv, AIC, and BIC as input features are changed
-def nnBackwardSelection(X, y, epo, bs, nur_list, a_func, opt, loss_):
+def nnBackwardSelection(X, y, folds, epo, bs, nur_list, a_func, opt, loss_):
 
     x_tmp = pd.DataFrame()
 
@@ -295,14 +347,14 @@ def nnBackwardSelection(X, y, epo, bs, nur_list, a_func, opt, loss_):
     for each in feature_names_list:
         
         # Splitting data in folds and appropriate sets for training and testing
-        ret_list = splitData(x_tmp, y, 5)
+        ret_list = splitData(x_tmp, y, folds)
         
         r2_list = []
         r2_bar_list = []
         aic_val_list = []
         bic_val_list = []
         
-        # Iterating through each fold in cross validation. In this case there are 5 folds
+        # Iterating through each fold in cross validation. In this case there are 5 or 10 folds
         for fold in ret_list:
             
             X_train = fold[0]
@@ -381,7 +433,7 @@ def nnBackwardSelection(X, y, epo, bs, nur_list, a_func, opt, loss_):
 ### STEPWISE SELECTION
 # Function that preforms stepwise feature selection favoring those feature with the lowest p-values but dropping features if they make no improvment(r2_cv) to the model.
 # Outputs a summary, report table, and graph to show change in r2_bar, r2_cv, AIC, and BIC as input features are changed
-def nnStepwiseSelection(X, y, epo, bs, nur_list, a_func, opt, loss_):
+def nnStepwiseSelection(X, y, folds, epo, bs, nur_list, a_func, opt, loss_):
 
     #Starting with a temporary empty feature dataframe
     x_tmp = pd.DataFrame()
@@ -416,14 +468,14 @@ def nnStepwiseSelection(X, y, epo, bs, nur_list, a_func, opt, loss_):
         x_tmp = pd.concat([x_tmp, X.iloc[:, each]], axis=1)
         
         # Splitting data in folds and appropriate sets for training and testing
-        ret_list = splitData(x_tmp, y, 5)
+        ret_list = splitData(x_tmp, y, folds)
         
         r2_list = []
         r2_bar_list = []
         aic_val_list = []
         bic_val_list = []
         
-        # Iterating through each fold in cross validation. In this case there are 5 folds
+        # Iterating through each fold in cross validation. In this case there are 5 or 10 folds
         for fold in ret_list:
             
             X_train = fold[0]
