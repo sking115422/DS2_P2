@@ -1,0 +1,284 @@
+BankModel..1 	 starts 	 BankModel..1 	 at time 0.0.
+BankModel..1 	 executes Arrival..3 on 1 	 Entity..2 	 at time 3.0744344438727667.
+BankModel..1 	 executes Arrival..5 on 2 	 Entity..4 	 at time 7.948660020268973.
+BankModel..1 	 executes Departure..6 on 1 	 Entity..2 	 at time 8.335485535489322.
+BankModel..1 	 records 0.3868255152203499 wait for 2 	 Entity..4 	 at time 8.335485535489322.
+BankModel..1 	 executes Departure..9 on 2 	 Entity..4 	 at time 20.02572397147837.
+BankModel..1 	 executes Arrival..8 on 3 	 Entity..7 	 at time 30.01431521445774.
+BankModel..1 	 executes Arrival..11 on 4 	 Entity..10 	 at time 34.3410210989153.
+BankModel..1 	 executes Departure..12 on 3 	 Entity..7 	 at time 38.143721106045504.
+BankModel..1 	 records 3.8027000071302055 wait for 4 	 Entity..10 	 at time 38.143721106045504.
+BankModel..1 	 executes Arrival..14 on 5 	 Entity..13 	 at time 44.38692959912855.
+BankModel..1 	 executes Departure..15 on 4 	 Entity..10 	 at time 55.71457982155608.
+BankModel..1 	 records 11.327650222427529 wait for 5 	 Entity..13 	 at time 55.71457982155608.
+BankModel..1 	 executes Departure..18 on 5 	 Entity..13 	 at time 61.23011366741439.
+BankModel..1 	 executes Arrival..17 on 6 	 Entity..16 	 at time 66.56726069031119.
+BankModel..1 	 executes Arrival..20 on 7 	 Entity..19 	 at time 72.85857128403315.
+BankModel..1 	 executes Arrival..23 on 8 	 Entity..22 	 at time 73.07714513457631.
+BankModel..1 	 executes Arrival..25 on 9 	 Entity..24 	 at time 73.96410452254624.
+BankModel..1 	 executes Arrival..27 on 10 	 Entity..26 	 at time 75.5778350526713.
+BankModel..1 	 executes Departure..21 on 6 	 Entity..16 	 at time 75.89982605680859.
+BankModel..1 	 records 3.0412547727754458 wait for 7 	 Entity..19 	 at time 75.89982605680859.
+BankModel..1 	 executes Departure..30 on 7 	 Entity..19 	 at time 83.09755352699858.
+BankModel..1 	 records 10.020408392422269 wait for 8 	 Entity..22 	 at time 83.09755352699858.
+BankModel..1 	 executes Arrival..29 on 11 	 Entity..28 	 at time 83.76932578497478.
+BankModel..1 	 executes Departure..31 on 8 	 Entity..22 	 at time 108.24344028247278.
+BankModel..1 	 records 34.27933575992654 wait for 9 	 Entity..24 	 at time 108.24344028247278.
+BankModel..1 	 executes Arrival..33 on 12 	 Entity..32 	 at time 112.60505462761526.
+BankModel..1 	 executes Departure..34 on 9 	 Entity..24 	 at time 117.15149101108119.
+BankModel..1 	 records 41.57365595840989 wait for 10 	 Entity..26 	 at time 117.15149101108119.
+BankModel..1 	 executes Departure..37 on 10 	 Entity..26 	 at time 118.89628071582375.
+BankModel..1 	 records 35.12695493084897 wait for 11 	 Entity..28 	 at time 118.89628071582375.
+BankModel..1 	 executes Departure..38 on 11 	 Entity..28 	 at time 126.34543084432657.
+BankModel..1 	 records 13.740376216711311 wait for 12 	 Entity..32 	 at time 126.34543084432657.
+BankModel..1 	 executes Arrival..36 on 13 	 Entity..35 	 at time 127.09286184020789.
+BankModel..1 	 executes Departure..39 on 12 	 Entity..32 	 at time 128.85434269950903.
+BankModel..1 	 records 1.7614808593011446 wait for 13 	 Entity..35 	 at time 128.85434269950903.
+BankModel..1 	 executes Departure..42 on 13 	 Entity..35 	 at time 131.83395452740788.
+BankModel..1 	 executes Arrival..41 on 14 	 Entity..40 	 at time 131.87642284860547.
+BankModel..1 	 executes Arrival..44 on 15 	 Entity..43 	 at time 134.47885302220257.
+BankModel..1 	 executes Arrival..47 on 16 	 Entity..46 	 at time 136.7242982612303.
+BankModel..1 	 executes Arrival..49 on 17 	 Entity..48 	 at time 137.2261702449296.
+BankModel..1 	 executes Arrival..51 on 18 	 Entity..50 	 at time 147.40854337863198.
+BankModel..1 	 executes Arrival..53 on 19 	 Entity..52 	 at time 154.7701477912773.
+BankModel..1 	 executes Departure..45 on 14 	 Entity..40 	 at time 156.23036666907095.
+BankModel..1 	 records 21.751513646868375 wait for 15 	 Entity..43 	 at time 156.23036666907095.
+BankModel..1 	 executes Departure..56 on 15 	 Entity..43 	 at time 157.72653703452573.
+BankModel..1 	 records 21.00223877329543 wait for 16 	 Entity..46 	 at time 157.72653703452573.
+BankModel..1 	 executes Arrival..55 on 20 	 Entity..54 	 at time 163.85566376466804.
+BankModel..1 	 executes Departure..57 on 16 	 Entity..46 	 at time 164.672172951749.
+BankModel..1 	 records 27.4460027068194 wait for 17 	 Entity..48 	 at time 164.672172951749.
+BankModel..1 	 executes Arrival..59 on 21 	 Entity..58 	 at time 169.21844285974228.
+BankModel..1 	 executes Departure..60 on 17 	 Entity..48 	 at time 171.57195681411181.
+BankModel..1 	 records 24.16341343547984 wait for 18 	 Entity..50 	 at time 171.57195681411181.
+BankModel..1 	 executes Departure..63 on 18 	 Entity..50 	 at time 173.18149792787406.
+BankModel..1 	 records 18.411350136596752 wait for 19 	 Entity..52 	 at time 173.18149792787406.
+BankModel..1 	 executes Arrival..62 on 22 	 Entity..61 	 at time 176.1320750567854.
+BankModel..1 	 executes Arrival..66 on 23 	 Entity..65 	 at time 190.21623508846577.
+BankModel..1 	 executes Arrival..68 on 24 	 Entity..67 	 at time 207.82840698967848.
+BankModel..1 	 executes Departure..64 on 19 	 Entity..52 	 at time 226.71702027770723.
+BankModel..1 	 records 62.8613565130392 wait for 20 	 Entity..54 	 at time 226.71702027770723.
+BankModel..1 	 executes Departure..71 on 20 	 Entity..54 	 at time 229.973272198108.
+BankModel..1 	 records 60.75482933836571 wait for 21 	 Entity..58 	 at time 229.973272198108.
+BankModel..1 	 executes Departure..72 on 21 	 Entity..58 	 at time 230.50106233817007.
+BankModel..1 	 records 54.368987281384676 wait for 22 	 Entity..61 	 at time 230.50106233817007.
+BankModel..1 	 executes Departure..73 on 22 	 Entity..61 	 at time 242.44809762370363.
+BankModel..1 	 records 52.231862535237866 wait for 23 	 Entity..65 	 at time 242.44809762370363.
+BankModel..1 	 executes Arrival..70 on 25 	 Entity..69 	 at time 256.6460427235604.
+BankModel..1 	 executes Arrival..76 on 26 	 Entity..75 	 at time 262.9266161852103.
+BankModel..1 	 executes Departure..74 on 23 	 Entity..65 	 at time 265.9003663021087.
+BankModel..1 	 records 58.07195931243021 wait for 24 	 Entity..67 	 at time 265.9003663021087.
+BankModel..1 	 executes Arrival..78 on 27 	 Entity..77 	 at time 266.67941725333105.
+BankModel..1 	 executes Departure..79 on 24 	 Entity..67 	 at time 267.1508519586241.
+BankModel..1 	 records 10.504809235063703 wait for 25 	 Entity..69 	 at time 267.1508519586241.
+BankModel..1 	 executes Departure..82 on 25 	 Entity..69 	 at time 269.5724085408167.
+BankModel..1 	 records 6.645792355606375 wait for 26 	 Entity..75 	 at time 269.5724085408167.
+BankModel..1 	 executes Departure..83 on 26 	 Entity..75 	 at time 280.53766311115805.
+BankModel..1 	 records 13.858245857827 wait for 27 	 Entity..77 	 at time 280.53766311115805.
+BankModel..1 	 executes Arrival..81 on 28 	 Entity..80 	 at time 286.7867686021638.
+BankModel..1 	 executes Departure..84 on 27 	 Entity..77 	 at time 287.30072576876216.
+BankModel..1 	 records 0.5139571665983453 wait for 28 	 Entity..80 	 at time 287.30072576876216.
+BankModel..1 	 executes Departure..87 on 28 	 Entity..80 	 at time 289.0928347607621.
+BankModel..1 	 executes Arrival..86 on 29 	 Entity..85 	 at time 315.069534963069.
+BankModel..1 	 executes Arrival..89 on 30 	 Entity..88 	 at time 316.0553722252105.
+BankModel..1 	 executes Arrival..92 on 31 	 Entity..91 	 at time 325.06341663167706.
+BankModel..1 	 executes Arrival..94 on 32 	 Entity..93 	 at time 326.0105661408555.
+BankModel..1 	 executes Departure..90 on 29 	 Entity..85 	 at time 328.1862242130565.
+BankModel..1 	 records 12.130851987846029 wait for 30 	 Entity..88 	 at time 328.1862242130565.
+BankModel..1 	 executes Arrival..96 on 33 	 Entity..95 	 at time 328.5680977456832.
+BankModel..1 	 executes Departure..97 on 30 	 Entity..88 	 at time 331.5994972723269.
+BankModel..1 	 records 6.536080640649857 wait for 31 	 Entity..91 	 at time 331.5994972723269.
+BankModel..1 	 executes Departure..100 on 31 	 Entity..91 	 at time 339.7574700541019.
+BankModel..1 	 records 13.746903913246399 wait for 32 	 Entity..93 	 at time 339.7574700541019.
+BankModel..1 	 executes Departure..101 on 32 	 Entity..93 	 at time 345.03206740194827.
+BankModel..1 	 records 16.46396965626508 wait for 33 	 Entity..95 	 at time 345.03206740194827.
+BankModel..1 	 executes Arrival..99 on 34 	 Entity..98 	 at time 346.99891152548093.
+BankModel..1 	 executes Departure..102 on 33 	 Entity..95 	 at time 347.019015528241.
+BankModel..1 	 records 0.0201040027600925 wait for 34 	 Entity..98 	 at time 347.019015528241.
+BankModel..1 	 executes Arrival..104 on 35 	 Entity..103 	 at time 350.5382969765031.
+BankModel..1 	 executes Departure..105 on 34 	 Entity..98 	 at time 363.78345797561343.
+BankModel..1 	 records 13.24516099911034 wait for 35 	 Entity..103 	 at time 363.78345797561343.
+BankModel..1 	 executes Arrival..107 on 36 	 Entity..106 	 at time 372.0987372729938.
+BankModel..1 	 executes Departure..108 on 35 	 Entity..103 	 at time 374.87253084159056.
+BankModel..1 	 records 2.7737935685967727 wait for 36 	 Entity..106 	 at time 374.87253084159056.
+BankModel..1 	 executes Departure..111 on 36 	 Entity..106 	 at time 386.2077966302703.
+BankModel..1 	 executes Arrival..110 on 37 	 Entity..109 	 at time 386.8412290455547.
+BankModel..1 	 executes Arrival..113 on 38 	 Entity..112 	 at time 388.18702282805265.
+BankModel..1 	 executes Departure..114 on 37 	 Entity..109 	 at time 401.2101335365632.
+BankModel..1 	 records 13.023110708510558 wait for 38 	 Entity..112 	 at time 401.2101335365632.
+BankModel..1 	 executes Departure..117 on 38 	 Entity..112 	 at time 412.81080513875213.
+BankModel..1 	 executes Arrival..116 on 39 	 Entity..115 	 at time 414.23776716813836.
+BankModel..1 	 executes Arrival..119 on 40 	 Entity..118 	 at time 417.170004693442.
+BankModel..1 	 executes Departure..120 on 39 	 Entity..115 	 at time 428.3010574546093.
+BankModel..1 	 records 11.131052761167268 wait for 40 	 Entity..118 	 at time 428.3010574546093.
+BankModel..1 	 executes Departure..123 on 40 	 Entity..118 	 at time 442.7185599331176.
+BankModel..1 	 executes Arrival..122 on 41 	 Entity..121 	 at time 465.84272892997825.
+BankModel..1 	 executes Arrival..125 on 42 	 Entity..124 	 at time 474.48787391402834.
+BankModel..1 	 executes Departure..126 on 41 	 Entity..121 	 at time 478.42607616144977.
+BankModel..1 	 records 3.9382022474214295 wait for 42 	 Entity..124 	 at time 478.42607616144977.
+BankModel..1 	 executes Arrival..128 on 43 	 Entity..127 	 at time 480.89364636860955.
+BankModel..1 	 executes Departure..129 on 42 	 Entity..124 	 at time 482.0137636897375.
+BankModel..1 	 records 1.1201173211279638 wait for 43 	 Entity..127 	 at time 482.0137636897375.
+BankModel..1 	 executes Departure..132 on 43 	 Entity..127 	 at time 490.19081903441935.
+BankModel..1 	 executes Arrival..131 on 44 	 Entity..130 	 at time 490.8238131013109.
+BankModel..1 	 executes Departure..135 on 44 	 Entity..130 	 at time 493.8917245995893.
+BankModel..1 	 executes Arrival..134 on 45 	 Entity..133 	 at time 510.3012754655581.
+BankModel..1 	 executes Departure..138 on 45 	 Entity..133 	 at time 510.51771500120276.
+BankModel..1 	 executes Arrival..137 on 46 	 Entity..136 	 at time 514.7722346292996.
+BankModel..1 	 executes Departure..141 on 46 	 Entity..136 	 at time 515.6003891480265.
+BankModel..1 	 executes Arrival..140 on 47 	 Entity..139 	 at time 535.8519934692328.
+BankModel..1 	 executes Arrival..143 on 48 	 Entity..142 	 at time 541.2386478429278.
+BankModel..1 	 executes Departure..144 on 47 	 Entity..139 	 at time 547.068471484561.
+BankModel..1 	 records 5.829823641633197 wait for 48 	 Entity..142 	 at time 547.068471484561.
+BankModel..1 	 executes Arrival..146 on 49 	 Entity..145 	 at time 547.838233971871.
+BankModel..1 	 executes Departure..147 on 48 	 Entity..142 	 at time 549.6829639684519.
+BankModel..1 	 records 1.8447299965808952 wait for 49 	 Entity..145 	 at time 549.6829639684519.
+BankModel..1 	 executes Departure..150 on 49 	 Entity..145 	 at time 558.509630646359.
+BankModel..1 	 executes Arrival..149 on 50 	 Entity..148 	 at time 559.6645605712683.
+BankModel..1 	 executes Arrival..152 on 51 	 Entity..151 	 at time 573.9460206288968.
+BankModel..1 	 executes Departure..153 on 50 	 Entity..148 	 at time 575.7229046311365.
+BankModel..1 	 records 1.7768840022397399 wait for 51 	 Entity..151 	 at time 575.7229046311365.
+BankModel..1 	 executes Departure..156 on 51 	 Entity..151 	 at time 576.6702150376576.
+BankModel..1 	 executes Arrival..155 on 52 	 Entity..154 	 at time 580.4641704026508.
+BankModel..1 	 executes Arrival..158 on 53 	 Entity..157 	 at time 580.9775425169182.
+BankModel..1 	 executes Arrival..161 on 54 	 Entity..160 	 at time 584.1056278934096.
+BankModel..1 	 executes Departure..159 on 52 	 Entity..154 	 at time 588.4658204790397.
+BankModel..1 	 records 7.488277962121515 wait for 53 	 Entity..157 	 at time 588.4658204790397.
+BankModel..1 	 executes Departure..164 on 53 	 Entity..157 	 at time 589.4259119733697.
+BankModel..1 	 records 5.320284079960061 wait for 54 	 Entity..160 	 at time 589.4259119733697.
+BankModel..1 	 executes Arrival..163 on 55 	 Entity..162 	 at time 589.8283684826554.
+BankModel..1 	 executes Arrival..167 on 56 	 Entity..166 	 at time 592.5320183031054.
+BankModel..1 	 executes Arrival..169 on 57 	 Entity..168 	 at time 594.3558461077191.
+BankModel..1 	 executes Departure..165 on 54 	 Entity..160 	 at time 601.7038119921433.
+BankModel..1 	 records 11.875443509487923 wait for 55 	 Entity..162 	 at time 601.7038119921433.
+BankModel..1 	 executes Arrival..171 on 58 	 Entity..170 	 at time 602.1622195224393.
+BankModel..1 	 executes Arrival..174 on 59 	 Entity..173 	 at time 602.5646313611143.
+BankModel..1 	 executes Departure..172 on 55 	 Entity..162 	 at time 603.6406804778085.
+BankModel..1 	 records 11.108662174703113 wait for 56 	 Entity..166 	 at time 603.6406804778085.
+BankModel..1 	 executes Arrival..176 on 60 	 Entity..175 	 at time 616.5636683437147.
+BankModel..1 	 executes Arrival..179 on 61 	 Entity..178 	 at time 616.8618952062615.
+BankModel..1 	 executes Departure..177 on 56 	 Entity..166 	 at time 619.5746432282391.
+BankModel..1 	 records 25.21879712051998 wait for 57 	 Entity..168 	 at time 619.5746432282391.
+BankModel..1 	 executes Arrival..181 on 62 	 Entity..180 	 at time 623.0009230909554.
+BankModel..1 	 executes Departure..182 on 57 	 Entity..168 	 at time 626.3092301060464.
+BankModel..1 	 records 24.147010583607084 wait for 58 	 Entity..170 	 at time 626.3092301060464.
+BankModel..1 	 executes Departure..185 on 58 	 Entity..170 	 at time 626.4301112831943.
+BankModel..1 	 records 23.86547992208 wait for 59 	 Entity..173 	 at time 626.4301112831943.
+BankModel..1 	 executes Departure..186 on 59 	 Entity..173 	 at time 632.188127168355.
+BankModel..1 	 records 15.624458824640328 wait for 60 	 Entity..175 	 at time 632.188127168355.
+BankModel..1 	 executes Arrival..184 on 63 	 Entity..183 	 at time 633.7320906060021.
+BankModel..1 	 executes Departure..187 on 60 	 Entity..175 	 at time 635.4435971679169.
+BankModel..1 	 records 18.581701961655426 wait for 61 	 Entity..178 	 at time 635.4435971679169.
+BankModel..1 	 executes Arrival..189 on 64 	 Entity..188 	 at time 636.5016116218305.
+BankModel..1 	 executes Departure..190 on 61 	 Entity..178 	 at time 637.129393909513.
+BankModel..1 	 records 14.128470818557616 wait for 62 	 Entity..180 	 at time 637.129393909513.
+BankModel..1 	 executes Departure..193 on 62 	 Entity..180 	 at time 643.0459420708212.
+BankModel..1 	 records 9.313851464819095 wait for 63 	 Entity..183 	 at time 643.0459420708212.
+BankModel..1 	 executes Arrival..192 on 65 	 Entity..191 	 at time 654.6721036485555.
+BankModel..1 	 executes Departure..194 on 63 	 Entity..183 	 at time 661.3666740893584.
+BankModel..1 	 records 24.865062467527878 wait for 64 	 Entity..188 	 at time 661.3666740893584.
+BankModel..1 	 executes Departure..197 on 64 	 Entity..188 	 at time 662.4077971120441.
+BankModel..1 	 records 7.735693463488587 wait for 65 	 Entity..191 	 at time 662.4077971120441.
+BankModel..1 	 executes Departure..198 on 65 	 Entity..191 	 at time 668.5170490594566.
+BankModel..1 	 executes Arrival..196 on 66 	 Entity..195 	 at time 688.037812081528.
+BankModel..1 	 executes Arrival..200 on 67 	 Entity..199 	 at time 697.880595828248.
+BankModel..1 	 executes Arrival..203 on 68 	 Entity..202 	 at time 699.9865763416404.
+BankModel..1 	 executes Departure..201 on 66 	 Entity..195 	 at time 701.7362584926078.
+BankModel..1 	 records 3.8556626643597838 wait for 67 	 Entity..199 	 at time 701.7362584926078.
+BankModel..1 	 executes Arrival..205 on 69 	 Entity..204 	 at time 708.1640922023203.
+BankModel..1 	 executes Departure..206 on 67 	 Entity..199 	 at time 709.6477602608801.
+BankModel..1 	 records 9.661183919239647 wait for 68 	 Entity..202 	 at time 709.6477602608801.
+BankModel..1 	 executes Departure..209 on 68 	 Entity..202 	 at time 713.003251374423.
+BankModel..1 	 records 4.839159172102768 wait for 69 	 Entity..204 	 at time 713.003251374423.
+BankModel..1 	 executes Departure..210 on 69 	 Entity..204 	 at time 722.28790069396.
+BankModel..1 	 executes Arrival..208 on 70 	 Entity..207 	 at time 743.7104652220485.
+BankModel..1 	 executes Departure..213 on 70 	 Entity..207 	 at time 745.019270355506.
+BankModel..1 	 executes Arrival..212 on 71 	 Entity..211 	 at time 773.1166307848719.
+BankModel..1 	 executes Departure..216 on 71 	 Entity..211 	 at time 776.2791911385419.
+BankModel..1 	 executes Arrival..215 on 72 	 Entity..214 	 at time 782.2374110209641.
+BankModel..1 	 executes Arrival..218 on 73 	 Entity..217 	 at time 791.0778838164158.
+BankModel..1 	 executes Departure..219 on 72 	 Entity..214 	 at time 792.4523722928054.
+BankModel..1 	 records 1.3744884763896152 wait for 73 	 Entity..217 	 at time 792.4523722928054.
+BankModel..1 	 executes Arrival..221 on 74 	 Entity..220 	 at time 795.9432153460508.
+BankModel..1 	 executes Departure..222 on 73 	 Entity..217 	 at time 799.6540934235406.
+BankModel..1 	 records 3.710878077489838 wait for 74 	 Entity..220 	 at time 799.6540934235406.
+BankModel..1 	 executes Arrival..224 on 75 	 Entity..223 	 at time 801.4809734499624.
+BankModel..1 	 executes Arrival..227 on 76 	 Entity..226 	 at time 804.8646941460443.
+BankModel..1 	 executes Departure..225 on 74 	 Entity..220 	 at time 806.130866566.
+BankModel..1 	 records 4.6498931160375605 wait for 75 	 Entity..223 	 at time 806.130866566.
+BankModel..1 	 executes Departure..230 on 75 	 Entity..223 	 at time 812.2393640162497.
+BankModel..1 	 records 7.37466987020548 wait for 76 	 Entity..226 	 at time 812.2393640162497.
+BankModel..1 	 executes Arrival..229 on 77 	 Entity..228 	 at time 815.0014184960959.
+BankModel..1 	 executes Arrival..233 on 78 	 Entity..232 	 at time 819.3653495550093.
+BankModel..1 	 executes Arrival..235 on 79 	 Entity..234 	 at time 820.9985826237166.
+BankModel..1 	 executes Arrival..237 on 80 	 Entity..236 	 at time 823.137498050774.
+BankModel..1 	 executes Arrival..239 on 81 	 Entity..238 	 at time 823.2887400956847.
+BankModel..1 	 executes Arrival..241 on 82 	 Entity..240 	 at time 823.9365793774056.
+BankModel..1 	 executes Departure..231 on 76 	 Entity..226 	 at time 829.9373268820077.
+BankModel..1 	 records 14.93590838591183 wait for 77 	 Entity..228 	 at time 829.9373268820077.
+BankModel..1 	 executes Departure..244 on 77 	 Entity..228 	 at time 831.6094149769401.
+BankModel..1 	 records 12.244065421930827 wait for 78 	 Entity..232 	 at time 831.6094149769401.
+BankModel..1 	 executes Arrival..243 on 83 	 Entity..242 	 at time 832.5282441737378.
+BankModel..1 	 executes Arrival..247 on 84 	 Entity..246 	 at time 832.6941240507161.
+BankModel..1 	 executes Departure..245 on 78 	 Entity..232 	 at time 845.9595374679316.
+BankModel..1 	 records 24.96095484421494 wait for 79 	 Entity..234 	 at time 845.9595374679316.
+BankModel..1 	 executes Departure..250 on 79 	 Entity..234 	 at time 847.4848835017971.
+BankModel..1 	 records 24.347385451023115 wait for 80 	 Entity..236 	 at time 847.4848835017971.
+BankModel..1 	 executes Arrival..249 on 85 	 Entity..248 	 at time 853.2255785404224.
+BankModel..1 	 executes Departure..251 on 80 	 Entity..236 	 at time 854.5804542118068.
+BankModel..1 	 records 31.29171411612208 wait for 81 	 Entity..238 	 at time 854.5804542118068.
+BankModel..1 	 executes Departure..254 on 81 	 Entity..238 	 at time 855.1734888670619.
+BankModel..1 	 records 31.23690948965634 wait for 82 	 Entity..240 	 at time 855.1734888670619.
+BankModel..1 	 executes Arrival..253 on 86 	 Entity..252 	 at time 863.8661950570945.
+BankModel..1 	 executes Arrival..257 on 87 	 Entity..256 	 at time 864.7765258260745.
+BankModel..1 	 executes Departure..255 on 82 	 Entity..240 	 at time 869.3735156260235.
+BankModel..1 	 records 36.845271452285715 wait for 83 	 Entity..242 	 at time 869.3735156260235.
+BankModel..1 	 executes Arrival..259 on 88 	 Entity..258 	 at time 870.779449016409.
+BankModel..1 	 executes Departure..260 on 83 	 Entity..242 	 at time 882.3934644266088.
+BankModel..1 	 records 49.69934037589269 wait for 84 	 Entity..246 	 at time 882.3934644266088.
+BankModel..1 	 executes Departure..263 on 84 	 Entity..246 	 at time 895.4168996009158.
+BankModel..1 	 records 42.191321060493465 wait for 85 	 Entity..248 	 at time 895.4168996009158.
+BankModel..1 	 executes Departure..264 on 85 	 Entity..248 	 at time 896.4305089484754.
+BankModel..1 	 records 32.56431389138095 wait for 86 	 Entity..252 	 at time 896.4305089484754.
+BankModel..1 	 executes Arrival..262 on 89 	 Entity..261 	 at time 901.6898817549474.
+BankModel..1 	 executes Departure..265 on 86 	 Entity..252 	 at time 902.0777806610545.
+BankModel..1 	 records 37.30125483498 wait for 87 	 Entity..256 	 at time 902.0777806610545.
+BankModel..1 	 executes Departure..268 on 87 	 Entity..256 	 at time 904.2829059569311.
+BankModel..1 	 records 33.50345694052214 wait for 88 	 Entity..258 	 at time 904.2829059569311.
+BankModel..1 	 executes Departure..269 on 88 	 Entity..258 	 at time 907.695840891918.
+BankModel..1 	 records 6.0059591369706595 wait for 89 	 Entity..261 	 at time 907.695840891918.
+BankModel..1 	 executes Arrival..267 on 90 	 Entity..266 	 at time 912.7426963097172.
+BankModel..1 	 executes Arrival..272 on 91 	 Entity..271 	 at time 912.9339339891759.
+BankModel..1 	 executes Arrival..274 on 92 	 Entity..273 	 at time 917.078152511165.
+BankModel..1 	 executes Arrival..276 on 93 	 Entity..275 	 at time 923.6369662045757.
+BankModel..1 	 executes Departure..270 on 89 	 Entity..261 	 at time 926.3739518961937.
+BankModel..1 	 records 13.631255586476527 wait for 90 	 Entity..266 	 at time 926.3739518961937.
+BankModel..1 	 executes Departure..279 on 90 	 Entity..266 	 at time 929.9765922291613.
+BankModel..1 	 records 17.04265823998537 wait for 91 	 Entity..271 	 at time 929.9765922291613.
+BankModel..1 	 executes Arrival..278 on 94 	 Entity..277 	 at time 938.8749131566989.
+BankModel..1 	 executes Departure..280 on 91 	 Entity..271 	 at time 941.584788672259.
+BankModel..1 	 records 24.506636161094093 wait for 92 	 Entity..273 	 at time 941.584788672259.
+BankModel..1 	 executes Arrival..282 on 95 	 Entity..281 	 at time 943.2092971280144.
+BankModel..1 	 executes Departure..283 on 92 	 Entity..273 	 at time 946.2924236308444.
+BankModel..1 	 records 22.65545742626864 wait for 93 	 Entity..275 	 at time 946.2924236308444.
+BankModel..1 	 executes Departure..286 on 93 	 Entity..275 	 at time 959.9803492209365.
+BankModel..1 	 records 21.105436064237665 wait for 94 	 Entity..277 	 at time 959.9803492209365.
+BankModel..1 	 executes Arrival..285 on 96 	 Entity..284 	 at time 966.2318403051478.
+BankModel..1 	 executes Arrival..289 on 97 	 Entity..288 	 at time 971.0277074281721.
+BankModel..1 	 executes Departure..287 on 94 	 Entity..277 	 at time 980.5988836893466.
+BankModel..1 	 records 37.38958656133218 wait for 95 	 Entity..281 	 at time 980.5988836893466.
+BankModel..1 	 executes Departure..292 on 95 	 Entity..281 	 at time 984.084261053051.
+BankModel..1 	 records 17.85242074790324 wait for 96 	 Entity..284 	 at time 984.084261053051.
+BankModel..1 	 executes Arrival..291 on 98 	 Entity..290 	 at time 986.7855922831203.
+BankModel..1 	 executes Departure..293 on 96 	 Entity..284 	 at time 989.329073863952.
+BankModel..1 	 records 18.30136643577987 wait for 97 	 Entity..288 	 at time 989.329073863952.
+BankModel..1 	 executes Arrival..295 on 99 	 Entity..294 	 at time 992.0519176097051.
+BankModel..1 	 executes Departure..296 on 97 	 Entity..288 	 at time 993.1771051019067.
+BankModel..1 	 records 6.391512818786396 wait for 98 	 Entity..290 	 at time 993.1771051019067.
+BankModel..1 	 executes Arrival..298 on 100 	 Entity..297 	 at time 998.5172342544249.
+BankModel..1 	 executes Departure..299 on 98 	 Entity..290 	 at time 1007.2450086517459.
+BankModel..1 	 records 15.193091042040805 wait for 99 	 Entity..294 	 at time 1007.2450086517459.
+BankModel..1 	 executes Departure..300 on 99 	 Entity..294 	 at time 1010.1988215896017.
+BankModel..1 	 records 11.6815873351768 wait for 100 	 Entity..297 	 at time 1010.1988215896017.
+BankModel..1 	 executes Departure..301 on 100 	 Entity..297 	 at time 1031.4959845550482.
+BankModel..1 	 terminates 	 BankModel..1 	 at time 1031.4959845550482.
