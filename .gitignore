@@ -14,3 +14,5 @@ scala/scalaTion_reg_models/project
 scala/scalaTion_reg_models/target
 project
 target
+log
+.bloop
