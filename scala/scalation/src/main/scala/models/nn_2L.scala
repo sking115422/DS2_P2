@@ -188,35 +188,45 @@ end NeuralNet_2L
  *  and tests forward selection. 
  *  > runMain scalation.modeling.neuralnet.nn_2L_sigmoid_AutoMPG
  */
-@main def nn_2L_sigmoid_AutoMPG (): Unit = 
+@main def nn_2L_sigmoid_AutoMPG (args: String*): Unit = 
 
+    val ew = new EasyWriter ("output", "out.txt")
+    if args != null && args.length > 0 then ew.toggle ()  
+ 
     import AutoMPG_Data._
  
 //  println (s"ox = $ox")
 //  println (s"y  = $y")
-    println (s"ox_fname = ${stringOf (ox_fname)}")
+    ew.println(s"ox_fname = ${stringOf (ox_fname)}")
+   
 
     val yy = MatrixD (y).transpose                               // vector to matrix with 1 column
 
     val af = f_sigmoid
 
-    banner (s"NeuralNet_2L for AutoMPG with ${af.name}")
+// banner (s"NeuralNet_2L for AutoMPG with ${af.name}")
+    ew.println(s"NeuralNet_2L for AutoMPG with ${af.name}")
 //  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
     val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
 
-    banner ("Cross-Validation")
+    // banner ("Cross-Validation")
+    ew.println("Cross-Validation")
     Fit.showQofStatTable (mod.crossValidate ())
 
-    banner ("Feature Selection Technique: Forward")
+    // banner ("Feature Selection Technique: Forward")
+    ew.println("Feature Selection Technique: Forward")
     val (cols, rSq) = mod.forwardSelAll ()                       // R^2, R^2 bar, R^2 cv
+    // println(type)
     val k = cols.size
-    println (s"k = $k, n = ${ox.dim2}")
+    s"k = $k, n = ${ox.dim2}"
     new PlotM (null, rSq.transpose, Array ("R^2", "R^2 bar", "R^2 cv"),
                s"R^2 vs n for ${mod.modelName}", lines = true)
-    println (s"rSq = $rSq")
+    ew.println(s"rSq = $rSq")
+
+    ew.finish()
 
 end nn_2L_sigmoid_AutoMPG
 
@@ -229,11 +239,13 @@ end nn_2L_sigmoid_AutoMPG
  */
 @main def nn_2L_tanh_AutoMPG (): Unit = 
 
+
+
     import AutoMPG_Data._
  
 //  println (s"ox = $ox")
 //  println (s"y  = $y")
-    println (s"ox_fname = ${stringOf (ox_fname)}")
+    s"ox_fname = ${stringOf (ox_fname)}"
 
     val yy = MatrixD (y).transpose                               // vector to matrix with 1 column
 
@@ -785,3 +797,24 @@ end nn_2L_tanh_BikeSharing
     println (s"rSq = $rSq")
 
 end nn_2L_reLU_BikeSharing
+
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+/** The `easyWriterTest` main function is used to test the `EasyWriter` class.
+ *  It will write into a file, unless there is a command-line argument.
+ *  > runMain scalation.easyWriterTest
+ */
+@main def easyWriterTest (args: String*): Unit =
+
+    val ew = new EasyWriter ("output", "out.txt")
+
+    if args != null && args.length > 0 then ew.toggle ()             // switch to standard output
+
+    val s = "Hello World!"
+
+    ew.print (s)
+    ew.println (s)
+    ew.write (s, 2, 4)
+    ew.finish ()
+
+end easyWriterTest

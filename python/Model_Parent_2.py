@@ -147,6 +147,7 @@ def create_nn(nur_list, a_func, opt, loss_, num_dims):
         nn.add(Dense(nur_list[i], activation=a_func))
 
     nn.compile(optimizer=opt, loss=loss_)
+    nn.summary()
     
     return nn
 

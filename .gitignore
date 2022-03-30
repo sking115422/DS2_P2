@@ -14,5 +14,6 @@ scala/scalaTion_reg_models/project
 scala/scalaTion_reg_models/target
 project
 target
-log
+simulation
 .bloop
+auto_keras
