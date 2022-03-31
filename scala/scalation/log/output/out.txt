@@ -1,11 +1,1 @@
-ox_fname = Array(intercept, cylinders, displacement, horsepower, weight, acceleration, modelyear)
-NeuralNet_2L for AutoMPG with sigmoid
-Cross-Validation
-Feature Selection Technique: Forward
-rSq = 
-MatrixD(69.4463,	69.3680,	70.5788,
- 	83.3489,	83.2633,	84.5118,
- 	84.7275,	84.6094,	85.0990,
- 	84.5108,	84.3507,	84.9465,
- 	84.0664,	83.8600,	84.1454,
- 	82.6138,	82.3429,	84.1955)
+Hello World

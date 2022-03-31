@@ -197,7 +197,7 @@ end NeuralNet_2L
  
 //  println (s"ox = $ox")
 //  println (s"y  = $y")
-    ew.println(s"ox_fname = ${stringOf (ox_fname)}")
+    // ew.println(s"ox_fname = ${stringOf (ox_fname)}")
    
 
     val yy = MatrixD (y).transpose                               // vector to matrix with 1 column
@@ -205,26 +205,30 @@ end NeuralNet_2L
     val af = f_sigmoid
 
 // banner (s"NeuralNet_2L for AutoMPG with ${af.name}")
-    ew.println(s"NeuralNet_2L for AutoMPG with ${af.name}")
+    // ew.println(s"NeuralNet_2L for AutoMPG with ${af.name}")
 //  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
     val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
 
-    // banner ("Cross-Validation")
-    ew.println("Cross-Validation")
-    Fit.showQofStatTable (mod.crossValidate ())
+//     // banner ("Cross-Validation")
+//     // ew.println("Cross-Validation")
+    val tmp = Fit.showQofStatTable (mod.crossValidate ()).toString.size
 
-    // banner ("Feature Selection Technique: Forward")
-    ew.println("Feature Selection Technique: Forward")
-    val (cols, rSq) = mod.forwardSelAll ()                       // R^2, R^2 bar, R^2 cv
-    // println(type)
-    val k = cols.size
-    s"k = $k, n = ${ox.dim2}"
-    new PlotM (null, rSq.transpose, Array ("R^2", "R^2 bar", "R^2 cv"),
-               s"R^2 vs n for ${mod.modelName}", lines = true)
-    ew.println(s"rSq = $rSq")
+
+    println(tmp)
+    // ew.println(tmp)
+
+    // // banner ("Feature Selection Technique: Forward")
+    // ew.println("Feature Selection Technique: Forward")
+    // val (cols, rSq) = mod.forwardSelAll ()                       // R^2, R^2 bar, R^2 cv
+    // // println(type)
+    // val k = cols.size
+    // s"k = $k, n = ${ox.dim2}"
+    // new PlotM (null, rSq.transpose, Array ("R^2", "R^2 bar", "R^2 cv"),
+    //            s"R^2 vs n for ${mod.modelName}", lines = true)
+    // ew.println(s"rSq = $rSq")
 
     ew.finish()
 
