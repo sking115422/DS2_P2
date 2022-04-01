@@ -6,7 +6,7 @@
  *  @date    Fri Mar 16 15:13:38 EDT 2018
  *  @see     LICENSE (MIT style license file).
  *
- *  @title   Model: Neural Network with 2 Layers (input and output layers)
+ *  @title   Model: Neural Network with 3 Layers (input, hidden and output layers)
  *
  *  @see     hebb.mit.edu/courses/9.641/2002/lectures/lecture03.pdf
  */
@@ -27,41 +27,50 @@ import java.io.PrintStream
 import java.io.FileOutputStream
 import java.io.FileDescriptor
 
-
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `NeuralNet_2L` class supports multi-output, 2-layer (input and output)
+/** The `NeuralNet_3L` class supports multi-output, 3-layer (input, hidden and output)
  *  Neural-Networks.  It can be used for both classification and prediction,
  *  depending on the activation functions used.  Given several input vectors and output
- *  vectors (training data), fit the weights/parameters b connecting the layers,
- *  so that for a new input vector z, the net can predict the output value, i.e.,
- *      yp_j = f (b dot z)
- *  where f is the activation function and the parameters b gives the weights
- *  between input and output layers.
- *  NOTE, b0 is treated as the bias, so x0 must be 1.0.
+ *  vectors (training data), fit the parameters a and b connecting the layers,
+ *  so that for a new input vector v, the net can predict the output value, i.e.,
+ *      yp = f1 (b * f (a * v))
+ *  where f and f1 are the activation functions and the parameter a and b
+ *  are the parameters between input-hidden and hidden-output layers.
+ *  Unlike `NeuralNet_3L` which adds input x0 = 1 to account for the intercept/bias,
+ *  `NeuralNet_3L` explicitly adds bias.
  *  @param x       the m-by-n input/data matrix (training data consisting of m input vectors)
  *  @param y       the m-by-ny output/response matrix (training data consisting of m output vectors)
  *  @param fname_  the feature/variable names (if null, use x_j's)
+ *  @param nz      the number of nodes in hidden layer (-1 => use default formula)
  *  @param hparam  the hyper-parameters for the model/network
  *  @param f       the activation function family for layers 1->2 (input to output)
+ *  @param f1      the activation function family for layers 2->3 (hidden to output)
  *  @param itran   the inverse transformation function returns response matrix to original scale
  */
-class NeuralNet_2L (x: MatrixD, y: MatrixD, fname_ : Array [String] = null,
-                    hparam: HyperParameter = Optimizer.hp,
-                    f: AFF = f_sigmoid, val itran: FunctionM2M = null)
+class NeuralNet_3L (x: MatrixD, y: MatrixD, fname_ : Array [String] = null,
+                    private var nz: Int = -1, hparam: HyperParameter = Optimizer.hp,
+                    f: AFF = f_sigmoid, f1: AFF = f_id,
+                    val itran: FunctionM2M = null)
       extends PredictorMV (x, y, fname_, hparam)
-         with Fit (dfm = x.dim2 - 1, df = x.dim - x.dim2):
+         with Fit (dfm = x.dim2, df = x.dim - x.dim2):                    // under-estimate of degrees of freedom
 
-    private val debug     = debugf ("NeuralNet_2L", false)                // debug function
+    private val debug     = debugf ("NeuralNet_3L", false)                // debug function
     private val eta       = hp("eta").toDouble                            // learning rate
     private val bSize     = hp("bSize").toInt                             // batch size
     private val maxEpochs = hp("maxEpochs").toInt                         // maximum number of training epochs/iterations
 //          val opti      = new Optimizer_SGD ()                          // parameter optimizer SGD
             val opti      = new Optimizer_SGDM ()                         // parameter optimizer SGDM
 
-    b  = new NetParam (weightMat (x.dim2, y.dim2))                        // initialize parameters b
-    bb = Array (b.asInstanceOf [NetParam])                                // inside array 
+    // Guidelines for setting the number of nodes in hidden layer:
+    if nz < 1 then nz = 2 * x.dim2 + 1                                    // [1] default number of nodes for hidden layer
+//  if nz < 1 then nz = 2 * x.dim2 + y.dim2                               // [2] default number of nodes for hidden layer
 
-    modelName = "NeuralNet_2L_" + f.name
+    private val (n, ny) = (x.dim2, y.dim2)
+    private val a  = new NetParam (weightMat (n, nz), new VectorD (nz))   // parameters (weights & biases) in to hid
+                b  = new NetParam (weightMat (nz, ny), new VectorD (ny))  // parameters (weights & biases) hid to out
+                bb = Array (a, b.asInstanceOf [NetParam])                 // inside array
+
+    modelName = "NeuralNet_3L_" + f.name
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Given training data x_ and y_, fit the parameters bb.
@@ -70,7 +79,7 @@ class NeuralNet_2L (x: MatrixD, y: MatrixD, fname_ : Array [String] = null,
      *  @param y_  the training/full response/output matrix
      */
     def train (x_ : MatrixD = x, y_ : MatrixD = y): Unit =
-        val epochs = opti.optimize2 (x_, y_, bb, eta, Array (f))          // optimize parameters bb
+        val epochs = opti.optimize3 (x_, y_, bb, eta, Array (f, f1))      // optimize parameters bb
         println (s"ending epoch = $epochs")
         estat.tally (epochs._2)
     end train
@@ -83,8 +92,8 @@ class NeuralNet_2L (x: MatrixD, y: MatrixD, fname_ : Array [String] = null,
      *  @param y_  the training/full response/output matrix
      */
     override def train2 (x_ : MatrixD = x, y_ : MatrixD = y): Unit =
-        val etaI = (0.25 * eta, 4.0 * eta)                                              // quarter to four times eta
-        val epochs = opti.auto_optimize (x_, y_, bb, etaI, Array (f), opti.optimize2)   // optimize parameters bb
+        val etaI = (0.25 * eta, 4.0 * eta)                                                 // quarter to four times eta
+        val epochs = opti.auto_optimize (x_, y_, bb, etaI, Array (f, f1), opti.optimize3)  // optimize parameters bb
         println (s"ending epoch = $epochs")
         estat.tally (epochs._2)
     end train2
@@ -108,76 +117,83 @@ class NeuralNet_2L (x: MatrixD, y: MatrixD, fname_ : Array [String] = null,
     /** Given a new input vector v, predict the output/response vector f(v).
      *  @param v  the new input vector
      */
-    def predict (v: VectorD): VectorD = f.f_ (bb(0) dot v)
+    def predict (v: VectorD): VectorD = f1.f_ (b dot f.f_ (a dot v))
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Given an input matrix v, predict the output/response matrix f(v).
      *  @param v  the input matrix
      */
-    override def predict (v: MatrixD = x): MatrixD = f.fM (bb(0) * v)
+    override def predict (v: MatrixD = x): MatrixD = f1.fM (b * (f.fM (a * v)))
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     /** Build a sub-model that is restricted to the given columns of the data matrix.
      *  @param x_cols  the columns that the new model is restricted to
      */
-    def buildModel (x_cols: MatrixD): NeuralNet_2L =
-        new NeuralNet_2L (x_cols, y, null, hparam, f, itran)
+    def buildModel (x_cols: MatrixD): NeuralNet_3L =
+        new NeuralNet_3L (x_cols, y, null, -1, hparam, f, f1, itran)
     end buildModel
 
-end NeuralNet_2L
+end NeuralNet_3L
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `NeuralNet_2L` companion object provides factory functions for buidling two-layer
+/** The `NeuralNet_3L` companion object provides factory functions for buidling three-layer
  *  neural nets.
  */
-object NeuralNet_2L extends Scaling:
+object NeuralNet_3L extends Scaling:
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    /** Create a `NeuralNet_2L` with automatic resclaing from a combined data matrix.
+    /** Create a `NeuralNet_3L` with automatic resclaing from a combined data matrix.
      *  @param xy      the combined input and output matrix
      *  @param fname   the feature/variable names
+     *  @param nz      the number of nodes in hidden layer (-1 => use default formula)
      *  @param hparam  the hyper-parameters
      *  @param f       the activation function family for layers 1->2 (input to output)
+     *  @param f1      the activation function family for layers 2->3 (hidden to output)
      *  @param col     the first designated response column (defaults to the last column)
      */
     def apply (xy: MatrixD, fname: Array [String] = null,
-               hparam: HyperParameter = Optimizer.hp, f: AFF = f_sigmoid)
-               (col: Int = xy.dim2 - 1): NeuralNet_2L =
+               nz: Int = -1, hparam: HyperParameter = Optimizer.hp,
+               f: AFF = f_sigmoid, f1: AFF = f_id)
+               (col: Int = xy.dim2 - 1): NeuralNet_3L =
         var itran: FunctionM2M = null                                        // inverse transform -> original scale
         val (x, y) = (xy(?, 0 until col), xy(?, col until xy.dim2)) 
 
         val x_s = if scale then rescaleX (x, f)
                   else x
-        val y_s = if f.bounds != null then { val y_i = rescaleY (y, f); itran = y_i._2; y_i._1 }
+        val y_s = if f1.bounds != null then { val y_i = rescaleY (y, f1); itran = y_i._2; y_i._1 }
                   else y
 
 //      println (s" scaled: x = $x_s \n scaled y = $y_s")
-        new NeuralNet_2L (x_s, y_s, fname, hparam, f, itran)
+        new NeuralNet_3L (x_s, y_s, fname, nz, hparam, f, f1, itran)
     end apply
 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-    /** Create a `NeuralNet_2L` with automatic rescaling from a data matrix and response vector.
+    /** Create a `NeuralNet_3L` with automatic rescaling from a data matrix and response vector.
      *  @param x       the input/data matrix
      *  @param y       the output/response matrix
      *  @param fname   the feature/variable names
+     *  @param nz      the number of nodes in hidden layer (-1 => use default formula)
      *  @param hparam  the hyper-parameters
      *  @param f       the activation function family for layers 1->2 (input to output)
+     *  @param f1      the activation function family for layers 2->3 (hidden to output)
      */
     def rescale (x: MatrixD, y: MatrixD, fname: Array [String] = null,
-                 hparam: HyperParameter = Optimizer.hp, f: AFF = f_sigmoid): NeuralNet_2L =
+                 nz: Int = -1, hparam: HyperParameter = Optimizer.hp,
+                 f: AFF = f_sigmoid, f1: AFF = f_id): NeuralNet_3L =
         var itran: FunctionM2M = null                                        // inverse transform -> original scale
 
         val x_s = if scale then rescaleX (x, f)
                   else x
-        val y_s = if f.bounds != null then { val y_i = rescaleY (y, f); itran = y_i._2; y_i._1 }
+        val y_s = if f1.bounds != null then { val y_i = rescaleY (y, f1); itran = y_i._2; y_i._1 }
                   else y
 
-//      println (s" scaled: x = $x_s \n scaled y = $y_s")
-        new NeuralNet_2L (x_s, y_s, fname, hparam, f, itran)
+        println (s" scaled: x = $x_s \n scaled y = $y_s")
+        new NeuralNet_3L (x_s, y_s, fname, nz, hparam, f, f1, itran)
     end rescale
 
-end NeuralNet_2L
+end NeuralNet_3L
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -186,14 +202,14 @@ end NeuralNet_2L
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_sigmoid_AutoMPG` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_sigmoid_AutoMPG` main function tests the `NeuralNet_3L` class using the
  *  AutoMPG dataset.  It tries the sigmoid acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_sigmoid_AutoMPG
+ *  > runMain scalation.modeling.neuralnet.nn_3L_sigmoid_AutoMPG
  */
-@main def nn_2L_sigmoid_AutoMPG (args: String*): Unit = 
+@main def nn_3L_sigmoid_AutoMPG (args: String*): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_sigmoid_AutoMPG.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_sigmoid_AutoMPG.txt")))
  
     import AutoMPG_Data._
  
@@ -205,9 +221,9 @@ end NeuralNet_2L
 
     val af = f_sigmoid
 
-    banner (s"NeuralNet_2L for AutoMPG with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for AutoMPG with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -223,18 +239,18 @@ end NeuralNet_2L
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_sigmoid_AutoMPG
+end nn_3L_sigmoid_AutoMPG
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_tanh_AutoMPG` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_tanh_AutoMPG` main function tests the `NeuralNet_3L` class using the
  *  AutoMPG dataset.  It tries the tanh acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_tanh_AutoMPG
+ *  > runMain scalation.modeling.neuralnet.nn_3L_tanh_AutoMPG
  */
-@main def nn_2L_tanh_AutoMPG (): Unit = 
+@main def nn_3L_tanh_AutoMPG (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_tanh_AutoMPG.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_tanh_AutoMPG.txt")))
 
     import AutoMPG_Data._
  
@@ -246,9 +262,9 @@ end nn_2L_sigmoid_AutoMPG
 
     val af = f_tanh
 
-    banner (s"NeuralNet_2L for AutoMPG with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for AutoMPG with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -264,18 +280,18 @@ end nn_2L_sigmoid_AutoMPG
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_tanh_AutoMPG
+end nn_3L_tanh_AutoMPG
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_reLU_AutoMPG` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_reLU_AutoMPG` main function tests the `NeuralNet_3L` class using the
  *  AutoMPG dataset.  It tries the reLU acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_reLU_AutoMPG
+ *  > runMain scalation.modeling.neuralnet.nn_3L_reLU_AutoMPG
  */
-@main def nn_2L_reLU_AutoMPG (): Unit = 
+@main def nn_3L_reLU_AutoMPG (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_reLU_AutoMPG.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_reLU_AutoMPG.txt")))
 
     import AutoMPG_Data._
  
@@ -287,9 +303,9 @@ end nn_2L_tanh_AutoMPG
 
     val af = f_reLU
 
-    banner (s"NeuralNet_2L for AutoMPG with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for AutoMPG with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -305,7 +321,7 @@ end nn_2L_tanh_AutoMPG
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_reLU_AutoMPG
+end nn_3L_reLU_AutoMPG
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -314,14 +330,14 @@ end nn_2L_reLU_AutoMPG
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_sigmoid_ForestFires` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_sigmoid_ForestFires` main function tests the `NeuralNet_3L` class using the
  *  ForestFires dataset.  It tries the sigmoid acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_sigmoid_ForestFires
+ *  > runMain scalation.modeling.neuralnet.nn_3L_sigmoid_ForestFires
  */
-@main def nn_2L_sigmoid_ForestFires (): Unit = 
+@main def nn_3L_sigmoid_ForestFires (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_sigmoid_ForestFires.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_sigmoid_ForestFires.txt")))
 
     import ForestFires_Data._
  
@@ -333,9 +349,9 @@ end nn_2L_reLU_AutoMPG
 
     val af = f_sigmoid
 
-    banner (s"NeuralNet_2L for ForestFires with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for ForestFires with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -351,18 +367,18 @@ end nn_2L_reLU_AutoMPG
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_sigmoid_ForestFires
+end nn_3L_sigmoid_ForestFires
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_tanh_ForestFires` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_tanh_ForestFires` main function tests the `NeuralNet_3L` class using the
  *  ForestFires dataset.  It tries the tanh acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_tanh_ForestFires
+ *  > runMain scalation.modeling.neuralnet.nn_3L_tanh_ForestFires
  */
-@main def nn_2L_tanh_ForestFires (): Unit = 
+@main def nn_3L_tanh_ForestFires (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_tanh_ForestFires.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_tanh_ForestFires.txt")))
 
     import ForestFires_Data._
  
@@ -374,9 +390,9 @@ end nn_2L_sigmoid_ForestFires
 
     val af = f_tanh
 
-    banner (s"NeuralNet_2L for ForestFires with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for ForestFires with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -392,18 +408,18 @@ end nn_2L_sigmoid_ForestFires
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_tanh_ForestFires
+end nn_3L_tanh_ForestFires
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_reLU_ForestFires` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_reLU_ForestFires` main function tests the `NeuralNet_3L` class using the
  *  ForestFires dataset.  It tries the reLU acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_reLU_ForestFires
+ *  > runMain scalation.modeling.neuralnet.nn_3L_reLU_ForestFires
  */
-@main def nn_2L_reLU_ForestFires (): Unit = 
+@main def nn_3L_reLU_ForestFires (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_reLU_ForestFires.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_reLU_ForestFires.txt")))
 
     import ForestFires_Data._
  
@@ -415,9 +431,9 @@ end nn_2L_tanh_ForestFires
 
     val af = f_reLU
 
-    banner (s"NeuralNet_2L for ForestFires with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for ForestFires with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -433,7 +449,7 @@ end nn_2L_tanh_ForestFires
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_reLU_ForestFires
+end nn_3L_reLU_ForestFires
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -442,14 +458,14 @@ end nn_2L_reLU_ForestFires
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_sigmoid_CCPP` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_sigmoid_CCPP` main function tests the `NeuralNet_3L` class using the
  *  CCPP dataset.  It tries the sigmoid acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_sigmoid_CCPP
+ *  > runMain scalation.modeling.neuralnet.nn_3L_sigmoid_CCPP
  */
-@main def nn_2L_sigmoid_CCPP (): Unit = 
+@main def nn_3L_sigmoid_CCPP (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_sigmoid_CCPP.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_sigmoid_CCPP.txt")))
 
     import CCPP_Data._
  
@@ -461,9 +477,9 @@ end nn_2L_reLU_ForestFires
 
     val af = f_sigmoid
 
-    banner (s"NeuralNet_2L for CCPP with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for CCPP with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -479,18 +495,18 @@ end nn_2L_reLU_ForestFires
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_sigmoid_CCPP
+end nn_3L_sigmoid_CCPP
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_tanh_CCPP` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_tanh_CCPP` main function tests the `NeuralNet_3L` class using the
  *  CCPP dataset.  It tries the tanh acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_tanh_CCPP
+ *  > runMain scalation.modeling.neuralnet.nn_3L_tanh_CCPP
  */
-@main def nn_2L_tanh_CCPP (): Unit = 
+@main def nn_3L_tanh_CCPP (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_tanh_CCPP.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_tanh_CCPP.txt")))
 
     import CCPP_Data._
  
@@ -502,9 +518,9 @@ end nn_2L_sigmoid_CCPP
 
     val af = f_tanh
 
-    banner (s"NeuralNet_2L for CCPP with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for CCPP with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -520,18 +536,18 @@ end nn_2L_sigmoid_CCPP
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_tanh_CCPP
+end nn_3L_tanh_CCPP
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_reLU_CCPP` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_reLU_CCPP` main function tests the `NeuralNet_3L` class using the
  *  CCPP dataset.  It tries the reLU acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_reLU_CCPP
+ *  > runMain scalation.modeling.neuralnet.nn_3L_reLU_CCPP
  */
-@main def nn_2L_reLU_CCPP (): Unit = 
+@main def nn_3L_reLU_CCPP (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_reLU_CCPP.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_reLU_CCPP.txt")))
 
     import CCPP_Data._
  
@@ -543,9 +559,9 @@ end nn_2L_tanh_CCPP
 
     val af = f_reLU
 
-    banner (s"NeuralNet_2L for CCPP with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for CCPP with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -561,7 +577,7 @@ end nn_2L_tanh_CCPP
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_reLU_CCPP
+end nn_3L_reLU_CCPP
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -570,14 +586,14 @@ end nn_2L_reLU_CCPP
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_sigmoid_WineQuality` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_sigmoid_WineQuality` main function tests the `NeuralNet_3L` class using the
  *  WineQuality dataset.  It tries the sigmoid acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_sigmoid_WineQuality
+ *  > runMain scalation.modeling.neuralnet.nn_3L_sigmoid_WineQuality
  */
-@main def nn_2L_sigmoid_WineQuality (): Unit = 
+@main def nn_3L_sigmoid_WineQuality (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_sigmoid_WineQuality.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_sigmoid_WineQuality.txt")))
 
     import WineQuality_Data._
  
@@ -589,9 +605,9 @@ end nn_2L_reLU_CCPP
 
     val af = f_sigmoid
 
-    banner (s"NeuralNet_2L for WineQuality with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for WineQuality with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -607,18 +623,18 @@ end nn_2L_reLU_CCPP
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_sigmoid_WineQuality
+end nn_3L_sigmoid_WineQuality
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_tanh_WineQuality` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_tanh_WineQuality` main function tests the `NeuralNet_3L` class using the
  *  WineQuality dataset.  It tries the tanh acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_tanh_WineQuality
+ *  > runMain scalation.modeling.neuralnet.nn_3L_tanh_WineQuality
  */
-@main def nn_2L_tanh_WineQuality (): Unit = 
+@main def nn_3L_tanh_WineQuality (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_tanh_WineQuality.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_tanh_WineQuality.txt")))
 
     import WineQuality_Data._
  
@@ -630,9 +646,9 @@ end nn_2L_sigmoid_WineQuality
 
     val af = f_tanh
 
-    banner (s"NeuralNet_2L for WineQuality with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for WineQuality with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -648,18 +664,18 @@ end nn_2L_sigmoid_WineQuality
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_tanh_WineQuality
+end nn_3L_tanh_WineQuality
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_reLU_WineQuality` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_reLU_WineQuality` main function tests the `NeuralNet_3L` class using the
  *  WineQuality dataset.  It tries the reLU acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_reLU_WineQuality
+ *  > runMain scalation.modeling.neuralnet.nn_3L_reLU_WineQuality
  */
-@main def nn_2L_reLU_WineQuality (): Unit = 
+@main def nn_3L_reLU_WineQuality (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_reLU_WineQuality.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_reLU_WineQuality.txt")))
 
     import WineQuality_Data._
  
@@ -671,9 +687,9 @@ end nn_2L_tanh_WineQuality
 
     val af = f_reLU
 
-    banner (s"NeuralNet_2L for WineQuality with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for WineQuality with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -689,7 +705,7 @@ end nn_2L_tanh_WineQuality
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_reLU_WineQuality
+end nn_3L_reLU_WineQuality
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -698,14 +714,14 @@ end nn_2L_reLU_WineQuality
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_sigmoid_BikeSharing` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_sigmoid_BikeSharing` main function tests the `NeuralNet_3L` class using the
  *  BikeSharing dataset.  It tries the sigmoid acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_sigmoid_BikeSharing
+ *  > runMain scalation.modeling.neuralnet.nn_3L_sigmoid_BikeSharing
  */
-@main def nn_2L_sigmoid_BikeSharing (): Unit = 
+@main def nn_3L_sigmoid_BikeSharing (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_sigmoid_BikeSharing.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_sigmoid_BikeSharing.txt")))
 
     import BikeSharing_Data._
  
@@ -717,9 +733,9 @@ end nn_2L_reLU_WineQuality
 
     val af = f_sigmoid
 
-    banner (s"NeuralNet_2L for BikeSharing with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for BikeSharing with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -735,18 +751,18 @@ end nn_2L_reLU_WineQuality
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_sigmoid_BikeSharing
+end nn_3L_sigmoid_BikeSharing
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_tanh_BikeSharing` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_tanh_BikeSharing` main function tests the `NeuralNet_3L` class using the
  *  BikeSharing dataset.  It tries the tanh acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_tanh_BikeSharing
+ *  > runMain scalation.modeling.neuralnet.nn_3L_tanh_BikeSharing
  */
-@main def nn_2L_tanh_BikeSharing (): Unit = 
+@main def nn_3L_tanh_BikeSharing (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_tanh_BikeSharing.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_tanh_BikeSharing.txt")))
 
     import BikeSharing_Data._
  
@@ -758,9 +774,9 @@ end nn_2L_sigmoid_BikeSharing
 
     val af = f_tanh
 
-    banner (s"NeuralNet_2L for BikeSharing with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for BikeSharing with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -776,18 +792,18 @@ end nn_2L_sigmoid_BikeSharing
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_tanh_BikeSharing
+end nn_3L_tanh_BikeSharing
 
 
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-/** The `nn_2L_reLU_BikeSharing` main function tests the `NeuralNet_2L` class using the
+/** The `nn_3L_reLU_BikeSharing` main function tests the `NeuralNet_3L` class using the
  *  BikeSharing dataset.  It tries the reLU acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_2L_reLU_BikeSharing
+ *  > runMain scalation.modeling.neuralnet.nn_3L_reLU_BikeSharing
  */
-@main def nn_2L_reLU_BikeSharing (): Unit = 
+@main def nn_3L_reLU_BikeSharing (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_2L_reLU_BikeSharing.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_3L_reLU_BikeSharing.txt")))
 
     import BikeSharing_Data._
  
@@ -799,9 +815,9 @@ end nn_2L_tanh_BikeSharing
 
     val af = f_reLU
 
-    banner (s"NeuralNet_2L for BikeSharing with ${af.name}")
-//  val mod = new NeuralNet_2L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_2L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    banner (s"NeuralNet_3L for BikeSharing with ${af.name}")
+//  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -817,4 +833,4 @@ end nn_2L_tanh_BikeSharing
                s"R^2 vs n for ${mod.modelName}", lines = true)
     println (s"rSq = $rSq")
 
-end nn_2L_reLU_BikeSharing
+end nn_3L_reLU_BikeSharing
