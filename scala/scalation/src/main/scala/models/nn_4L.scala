@@ -241,7 +241,7 @@ end NeuralNet_XL
  */
 @main def nn_4L_sigmoid_AutoMPG (args: String*): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_sigmoid_AutoMPG.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_sigmoid_AutoMPG.txt")))
  
     import AutoMPG_Data._
  
@@ -282,7 +282,7 @@ end nn_4L_sigmoid_AutoMPG
  */
 @main def nn_4L_tanh_AutoMPG (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_tanh_AutoMPG.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_tanh_AutoMPG.txt")))
 
     import AutoMPG_Data._
  
@@ -323,7 +323,7 @@ end nn_4L_tanh_AutoMPG
  */
 @main def nn_4L_reLU_AutoMPG (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_reLU_AutoMPG.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_reLU_AutoMPG.txt")))
 
     import AutoMPG_Data._
  
@@ -369,7 +369,7 @@ end nn_4L_reLU_AutoMPG
  */
 @main def nn_4L_sigmoid_ForestFires (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_sigmoid_ForestFires.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_sigmoid_ForestFires.txt")))
 
     import ForestFires_Data._
  
@@ -410,7 +410,7 @@ end nn_4L_sigmoid_ForestFires
  */
 @main def nn_4L_tanh_ForestFires (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_tanh_ForestFires.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_tanh_ForestFires.txt")))
 
     import ForestFires_Data._
  
@@ -451,7 +451,7 @@ end nn_4L_tanh_ForestFires
  */
 @main def nn_4L_reLU_ForestFires (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_reLU_ForestFires.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_reLU_ForestFires.txt")))
 
     import ForestFires_Data._
  
@@ -497,7 +497,7 @@ end nn_4L_reLU_ForestFires
  */
 @main def nn_4L_sigmoid_CCPP (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_sigmoid_CCPP.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_sigmoid_CCPP.txt")))
 
     import CCPP_Data._
  
@@ -538,7 +538,7 @@ end nn_4L_sigmoid_CCPP
  */
 @main def nn_4L_tanh_CCPP (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_tanh_CCPP.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_tanh_CCPP.txt")))
 
     import CCPP_Data._
  
@@ -579,7 +579,7 @@ end nn_4L_tanh_CCPP
  */
 @main def nn_4L_reLU_CCPP (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_reLU_CCPP.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_reLU_CCPP.txt")))
 
     import CCPP_Data._
  
@@ -625,7 +625,7 @@ end nn_4L_reLU_CCPP
  */
 @main def nn_4L_sigmoid_WineQuality (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_sigmoid_WineQuality.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_sigmoid_WineQuality.txt")))
 
     import WineQuality_Data._
  
@@ -666,7 +666,7 @@ end nn_4L_sigmoid_WineQuality
  */
 @main def nn_4L_tanh_WineQuality (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_tanh_WineQuality.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_tanh_WineQuality.txt")))
 
     import WineQuality_Data._
  
@@ -707,7 +707,7 @@ end nn_4L_tanh_WineQuality
  */
 @main def nn_4L_reLU_WineQuality (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_reLU_WineQuality.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_reLU_WineQuality.txt")))
 
     import WineQuality_Data._
  
@@ -753,7 +753,7 @@ end nn_4L_reLU_WineQuality
  */
 @main def nn_4L_sigmoid_BikeSharing (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_sigmoid_BikeSharing.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_sigmoid_BikeSharing.txt")))
 
     import BikeSharing_Data._
  
@@ -794,7 +794,7 @@ end nn_4L_sigmoid_BikeSharing
  */
 @main def nn_4L_tanh_BikeSharing (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_tanh_BikeSharing.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_tanh_BikeSharing.txt")))
 
     import BikeSharing_Data._
  
@@ -835,7 +835,7 @@ end nn_4L_tanh_BikeSharing
  */
 @main def nn_4L_reLU_BikeSharing (): Unit = 
 
-    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_XL_reLU_BikeSharing.txt")))
+    System.setOut(new PrintStream(new FileOutputStream("log/output/nn_4L_reLU_BikeSharing.txt")))
 
     import BikeSharing_Data._
  
