@@ -62,7 +62,8 @@ class NeuralNet_XL (x: MatrixD, y: MatrixD, fname_ : Array [String] = null,
 
     private val debug     = debugf ("NeuralNet_XL", false)                // debug function
     private val flaw      = flawf ("NeuralNet_XL")                        // flaw function
-    private val eta       = hp("eta").toDouble                            // learning rate
+//  private val eta       = hp("eta").toDouble                            // learning rate
+    private val eta       = 0.001                                         // learning rate
     private val bSize     = hp("bSize").toInt                             // batch size
     private val maxEpochs = hp("maxEpochs").toInt                         // maximum number of training epochs/iterations
     private val lambda    = hp ("lambda").toDouble                        // regularization hyper-parameter
@@ -255,7 +256,8 @@ end NeuralNet_XL
 
     banner (s"NeuralNet_XL for AutoMPG with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -296,7 +298,8 @@ end nn_4L_sigmoid_AutoMPG
 
     banner (s"NeuralNet_XL for AutoMPG with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -337,7 +340,8 @@ end nn_4L_tanh_AutoMPG
 
     banner (s"NeuralNet_XL for AutoMPG with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -383,7 +387,8 @@ end nn_4L_reLU_AutoMPG
 
     banner (s"NeuralNet_XL for ForestFires with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -424,7 +429,8 @@ end nn_4L_sigmoid_ForestFires
 
     banner (s"NeuralNet_XL for ForestFires with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -465,7 +471,8 @@ end nn_4L_tanh_ForestFires
 
     banner (s"NeuralNet_XL for ForestFires with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -511,7 +518,8 @@ end nn_4L_reLU_ForestFires
 
     banner (s"NeuralNet_XL for CCPP with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -552,7 +560,8 @@ end nn_4L_sigmoid_CCPP
 
     banner (s"NeuralNet_XL for CCPP with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -593,7 +602,8 @@ end nn_4L_tanh_CCPP
 
     banner (s"NeuralNet_XL for CCPP with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -639,7 +649,8 @@ end nn_4L_reLU_CCPP
 
     banner (s"NeuralNet_XL for WineQuality with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -680,7 +691,8 @@ end nn_4L_sigmoid_WineQuality
 
     banner (s"NeuralNet_XL for WineQuality with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -721,7 +733,8 @@ end nn_4L_tanh_WineQuality
 
     banner (s"NeuralNet_XL for WineQuality with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -767,7 +780,8 @@ end nn_4L_reLU_WineQuality
 
     banner (s"NeuralNet_XL for BikeSharing with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -808,7 +822,8 @@ end nn_4L_sigmoid_BikeSharing
 
     banner (s"NeuralNet_XL for BikeSharing with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -849,7 +864,8 @@ end nn_4L_tanh_BikeSharing
 
     banner (s"NeuralNet_XL for BikeSharing with ${af.name}")
 //  val mod = new NeuralNet_XL (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_XL.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = Array(af, af, f_id)) 
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics

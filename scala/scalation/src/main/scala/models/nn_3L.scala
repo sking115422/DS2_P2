@@ -55,7 +55,8 @@ class NeuralNet_3L (x: MatrixD, y: MatrixD, fname_ : Array [String] = null,
          with Fit (dfm = x.dim2, df = x.dim - x.dim2):                    // under-estimate of degrees of freedom
 
     private val debug     = debugf ("NeuralNet_3L", false)                // debug function
-    private val eta       = hp("eta").toDouble                            // learning rate
+// private val eta       = hp("eta").toDouble                             // learning rate
+    private val eta       = 0.001                                         // learning rate
     private val bSize     = hp("bSize").toInt                             // batch size
     private val maxEpochs = hp("maxEpochs").toInt                         // maximum number of training epochs/iterations
 //          val opti      = new Optimizer_SGD ()                          // parameter optimizer SGD
@@ -223,7 +224,8 @@ end NeuralNet_3L
 
     banner (s"NeuralNet_3L for AutoMPG with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -264,7 +266,8 @@ end nn_3L_sigmoid_AutoMPG
 
     banner (s"NeuralNet_3L for AutoMPG with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -305,7 +308,8 @@ end nn_3L_tanh_AutoMPG
 
     banner (s"NeuralNet_3L for AutoMPG with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -351,7 +355,8 @@ end nn_3L_reLU_AutoMPG
 
     banner (s"NeuralNet_3L for ForestFires with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -392,7 +397,8 @@ end nn_3L_sigmoid_ForestFires
 
     banner (s"NeuralNet_3L for ForestFires with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -433,7 +439,8 @@ end nn_3L_tanh_ForestFires
 
     banner (s"NeuralNet_3L for ForestFires with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -479,7 +486,8 @@ end nn_3L_reLU_ForestFires
 
     banner (s"NeuralNet_3L for CCPP with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -520,7 +528,8 @@ end nn_3L_sigmoid_CCPP
 
     banner (s"NeuralNet_3L for CCPP with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -561,7 +570,8 @@ end nn_3L_tanh_CCPP
 
     banner (s"NeuralNet_3L for CCPP with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -607,7 +617,8 @@ end nn_3L_reLU_CCPP
 
     banner (s"NeuralNet_3L for WineQuality with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -648,7 +659,8 @@ end nn_3L_sigmoid_WineQuality
 
     banner (s"NeuralNet_3L for WineQuality with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -689,7 +701,8 @@ end nn_3L_tanh_WineQuality
 
     banner (s"NeuralNet_3L for WineQuality with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -735,7 +748,8 @@ end nn_3L_reLU_WineQuality
 
     banner (s"NeuralNet_3L for BikeSharing with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -776,7 +790,8 @@ end nn_3L_sigmoid_BikeSharing
 
     banner (s"NeuralNet_3L for BikeSharing with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
@@ -817,7 +832,8 @@ end nn_3L_tanh_BikeSharing
 
     banner (s"NeuralNet_3L for BikeSharing with ${af.name}")
 //  val mod = new NeuralNet_3L (ox, yy, ox_fname)                // create model with intercept (else pass x)
-    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname)            // create model with intercept (else pass x) - rescales
+    val mod = NeuralNet_3L.rescale (ox, yy, ox_fname,            // create model with intercept (else pass x) - rescales
+                                    f = af)  
 //  mod.trainNtest ()()                                          // train and test the model
     mod.trainNtest2 ()()                                         // train and test the model - with auto-tuning
 // println (mod.summary ())                                      // parameter/coefficient statistics
