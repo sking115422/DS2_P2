@@ -190,7 +190,7 @@ def nnCrossValidation(X, y, folds, epo, bs, nur_list, a_func, opt, loss_):
             r2_list.append(r2)
             r2_bar_list.append(calc_r2_bar(len(y), X.shape[1], r2))
             aic_val_list.append(calc_aic(y_test, y_pred, X.shape[1]))
-            bic_val_list.append(calc_aic(y_test, y_pred, X.shape[1]))
+            bic_val_list.append(calc_bic(y_test, y_pred, X.shape[1]))
             
         # Averaging values for each fold and storing
         r2_cv_list_final = np.average(r2_list)
