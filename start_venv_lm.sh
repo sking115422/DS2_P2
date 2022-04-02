@@ -1,5 +1,5 @@
 
-sudo chmod +x start_venv_lm.sh
+# sudo chmod +x ./start_venv_lm.sh
 pip install virtualenv
 rm -r venv
 virtualenv venv
