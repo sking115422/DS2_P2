@@ -269,7 +269,7 @@ def nnForwardSelection(X, y, folds, epo, bs, nur_list, a_func, opt, loss_):
             r2_list.append(r2)
             r2_bar_list.append(calc_r2_bar(len(y), num_feat, r2))
             aic_val_list.append(calc_aic(y_test, y_pred, num_feat))
-            bic_val_list.append(calc_aic(y_test, y_pred, num_feat))
+            bic_val_list.append(calc_bic(y_test, y_pred, num_feat))
             
         # Averaging values for each fold and storing
         r2_cv_list_final.append(np.average(r2_list))
