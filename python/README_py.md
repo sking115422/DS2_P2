@@ -7,7 +7,7 @@ This folder named "python" contains all relevant files needed to run the regress
 ## From Batch or Shell File
 
 1. cd to the main directory (DS2_P2) if you are not already there.
-1. If on a Mac or Linux machine, you must git the script the correct permissions to execute by running the command: "sudo chmod +x ./start_venv_lm.sh"
+1. If on a Linux or Mac machine, you must give the script the correct permissions to execute by running the command: "sudo chmod +x ./start_venv_lm.sh"
 1. Run the corresponding batch or shell file in the terminal. The commands are as follows: "./start_venv_w.bat" for windows and "./start_venv_lm.sh" for linux or mac.
 1. Once the script finishes running (This will be indicated by a "SETUP COMPLETE!" message on the console.), the virtual environment needed to run the python code for this project should be setup. Please restart the IDE before proceeding.
 1. Choose a python notebook that corresponds to the dataset you are interested in. Then set the kernel to pull from the virtual enviroment that the script just created called "venv". If you are using VSCode, there should be a button on the top right of the screen that allows you to easily select the virtual environment. 
