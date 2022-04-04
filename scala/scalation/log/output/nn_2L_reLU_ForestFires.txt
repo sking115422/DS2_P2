@@ -1,0 +1,2254 @@
+readFileIntoArray: C:\Users\Tango\Desktop\Projects\DS2_P2\scala\scalation\data\forestfires_cleaned.csv
+load: read 99 data rows so far ...
+load: read 199 data rows so far ...
+load: read 299 data rows so far ...
+load: read 399 data rows so far ...
+load: read 499 data rows so far ...
+load: read in an 517-by-13 matrix from forestfires_cleaned.csv
+ox_fname = Array(intercept, X, Y, month, day, FFMC, DMC, DC, ISI, temp, RH, wind, rain)
+------------------------------------------
+| NeuralNet_2L for ForestFires with reLU |
+------------------------------------------
+auto_optimize: etaI = (2.5E-4,0.004)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 2.5E-4, result = (981.2329844797689,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 4.84375E-4, result = (975.3813069783811,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 7.1875E-4, result = (973.6327072251139,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 9.53125E-4, result = (972.6094469734358,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.0011875, result = (971.9520114528107,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.001421875, result = (971.5240336488831,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.00165625, result = (971.2550278976335,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.001890625, result = (971.0581621789454,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.002125, result = (970.9489910221635,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.0023593750000000004, result = (970.8585568094466,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.0025937499999999997, result = (970.8045583413132,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.002828125, result = (970.7865485504655,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.0030625, result = (970.7458058381104,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.0032968750000000003, result = (970.7370454560029,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.0035312499999999997, result = (970.7495311926062,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.003765625, result = (970.7410871442474,400)
+optimize2: bSize = 20, nB = 25
+auto_optimize: eta = 0.004, result = (970.7124619706705,400)
+ending epoch = (970.7124619706705,400)
+
+REPORT
+    ----------------------------------------------------------------------------
+    modelName  mn  = NeuralNet_2L_reLU
+    ----------------------------------------------------------------------------
+    hparameter hp  = HyperParameter (HashMap(lambda -> (0.01,0.01), maxEpochs -> (400,400), eta -> (0.1,0.1), nu -> (0.9,0.9), upLimit -> (4,4), beta -> (0.9,0.9), bSize -> (20,20)))
+    ----------------------------------------------------------------------------
+    features   fn  = Array(intercept, X, Y, month, day, FFMC, DMC, DC, ISI, temp, RH, wind, rain)
+    ----------------------------------------------------------------------------
+    parameter  bb  = Array(b.w = 
+MatrixD(1.10753,
+ 	0.0997571,
+ 	-0.000779961,
+ 	0.351406,
+ 	0.0185820,
+ 	0.0521333,
+ 	0.147867,
+ 	-0.292326,
+ 	-0.121932,
+ 	0.0425748,
+ 	-0.0682842,
+ 	0.108953,
+ 	0.0255732) 
+ b.b = null)
+    ----------------------------------------------------------------------------
+    fitMap     qof = 
+		rSq 	 -> VectorD(0.0380428) 
+		rSqBar 	 -> VectorD(0.0151391) 
+		sst 	 -> VectorD(1009.10) 
+		sse 	 -> VectorD(970.712) 
+		mse0 	 -> VectorD(1.87759) 
+		rmse 	 -> VectorD(1.37025) 
+		mae 	 -> VectorD(1.12298) 
+		dfm 	 -> VectorD(12.0000) 
+		df 	 -> VectorD(504.000) 
+		fStat 	 -> VectorD(1.66099) 
+		aic 	 -> VectorD(-870.443) 
+		bic 	 -> VectorD(-815.218) 
+		mape 	 -> VectorD(NaN) 
+		smape 	 -> VectorD(NaN) 
+
+    ----------------------------------------------------------------------------
+        
+Run + title
+--------------------
+| Cross-Validation |
+--------------------
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (707.2879388928638,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.10753,
+ 	0.0997571,
+ 	-0.000779961,
+ 	0.351406,
+ 	0.0185820,
+ 	0.0521333,
+ 	0.147867,
+ 	-0.292326,
+ 	-0.121932,
+ 	0.0425748,
+ 	-0.0682842,
+ 	0.108953,
+ 	0.0255732) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0334840,
+ 	-0.0580907,
+ 	260.341,
+ 	269.058,
+ 	2.61222,
+ 	1.61624,
+ 	1.28187,
+ 	12.0000,
+ 	504.000,
+ 	-1.36076,
+ 	-172.745,
+ 	-138.494,
+ 	Infinity,
+ 	127.885)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (802.1897889252295,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.10753,
+ 	0.0997571,
+ 	-0.000779961,
+ 	0.351406,
+ 	0.0185820,
+ 	0.0521333,
+ 	0.147867,
+ 	-0.292326,
+ 	-0.121932,
+ 	0.0425748,
+ 	-0.0682842,
+ 	0.108953,
+ 	0.0255732) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(-0.0509321,
+ 	-0.0759543,
+ 	165.033,
+ 	173.438,
+ 	1.68387,
+ 	1.29764,
+ 	1.07860,
+ 	12.0000,
+ 	504.000,
+ 	-2.03548,
+ 	-147.281,
+ 	-113.030,
+ 	Infinity,
+ 	128.814)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (771.0480051439637,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.10753,
+ 	0.0997571,
+ 	-0.000779961,
+ 	0.351406,
+ 	0.0185820,
+ 	0.0521333,
+ 	0.147867,
+ 	-0.292326,
+ 	-0.121932,
+ 	0.0425748,
+ 	-0.0682842,
+ 	0.108953,
+ 	0.0255732) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0327636,
+ 	0.00973416,
+ 	210.791,
+ 	203.885,
+ 	1.97947,
+ 	1.40693,
+ 	1.15891,
+ 	12.0000,
+ 	504.000,
+ 	1.42268,
+ 	-155.389,
+ 	-121.138,
+ 	Infinity,
+ 	125.096)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (797.9628187753173,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.10753,
+ 	0.0997571,
+ 	-0.000779961,
+ 	0.351406,
+ 	0.0185820,
+ 	0.0521333,
+ 	0.147867,
+ 	-0.292326,
+ 	-0.121932,
+ 	0.0425748,
+ 	-0.0682842,
+ 	0.108953,
+ 	0.0255732) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.188740,
+ 	-0.217043,
+ 	153.587,
+ 	182.575,
+ 	1.77257,
+ 	1.33138,
+ 	1.12543,
+ 	12.0000,
+ 	504.000,
+ 	-6.66847,
+ 	-149.715,
+ 	-115.463,
+ 	NaN,
+ 	NaN)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (784.2723957899941,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.10753,
+ 	0.0997571,
+ 	-0.000779961,
+ 	0.351406,
+ 	0.0185820,
+ 	0.0521333,
+ 	0.147867,
+ 	-0.292326,
+ 	-0.121932,
+ 	0.0425748,
+ 	-0.0682842,
+ 	0.108953,
+ 	0.0255732) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(-0.0297344,
+ 	-0.0542518,
+ 	189.018,
+ 	194.638,
+ 	1.88969,
+ 	1.37466,
+ 	1.14488,
+ 	12.0000,
+ 	504.000,
+ 	-1.21278,
+ 	-152.927,
+ 	-118.676,
+ 	NaN,
+ 	NaN)
+-----------------------------------------------
+| showQofStatTable: Statistical Table for QoF |
+-----------------------------------------------
+|        name |   num |        min |        max |       mean |      stdev |   interval |
+----------------------------------------------------------------------------------------
+|         rSq |     5 |     -0.189 |      0.033 |     -0.054 |      0.082 |      0.101 |
+|      rSqBar |     5 |     -0.217 |      0.010 |     -0.079 |      0.084 |      0.104 |
+|         sst |     5 |    153.587 |    260.341 |    195.754 |     42.323 |     52.561 |
+|         sse |     5 |    173.438 |    269.058 |    204.719 |     37.785 |     46.925 |
+|        mse0 |     5 |      1.684 |      2.612 |      1.988 |      0.367 |      0.456 |
+|        rmse |     5 |      1.298 |      1.616 |      1.405 |      0.125 |      0.155 |
+|         mae |     5 |      1.079 |      1.282 |      1.158 |      0.076 |      0.094 |
+|         dfm |     5 |     12.000 |     12.000 |     12.000 |      0.000 |      0.000 |
+|          df |     5 |    504.000 |    504.000 |    504.000 |      0.000 |      0.000 |
+|       fStat |     5 |     -6.668 |      1.423 |     -1.971 |      2.938 |      3.649 |
+|         aic |     5 |   -172.745 |   -147.281 |   -155.612 |     10.062 |     12.496 |
+|         bic |     5 |   -138.494 |   -113.030 |   -121.360 |     10.062 |     12.496 |
+|        mape |     5 | 179769313486231570000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.000 |   Infinity |        NaN |        NaN |        NaN |
+|       smape |     5 |    125.096 |    128.814 |        NaN |        NaN |        NaN |
+----------------------------------------------------------------------------------------
+----------------------------------------
+| Feature Selection Technique: Forward |
+----------------------------------------
+-------------------------------------------------------------------------------------
+| forwardSelAll: (l = 0) INITIAL variable (0, intercept) => cols = LinkedHashSet(0) |
+-------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (1005.223710245305,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (1007.5797414367067,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (995.9227507126631,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (1009.1017281487816,400)
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+optimize2: bSize = 20, nB = 25
+ending epoch = (1006.8919150678153,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (1004.5510451516811,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (1004.6579333301609,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (1008.9935047202358,345)
+optimize2: bSize = 20, nB = 25
+ending epoch = (1006.2146852809068,350)
+optimize2: bSize = 20, nB = 25
+ending epoch = (1006.1961832275543,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (1004.5753408547262,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (1008.5533012072979,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (728.980539213857,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03726,
+ 	0.132011) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0376935,
+ 	-0.0397084,
+ 	260.341,
+ 	270.154,
+ 	2.62286,
+ 	1.61952,
+ 	1.29712,
+ 	1.00000,
+ 	515.000,
+ 	-18.7070,
+ 	-194.536,
+ 	-189.267,
+ 	Infinity,
+ 	127.387)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (829.6934404938131,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.14432,
+ 	0.169005) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(-0.0109872,
+ 	-0.0129503,
+ 	165.033,
+ 	166.846,
+ 	1.61986,
+ 	1.27274,
+ 	1.04696,
+ 	1.00000,
+ 	515.000,
+ 	-5.59691,
+ 	-167.722,
+ 	-162.452,
+ 	Infinity,
+ 	127.564)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (786.1796624538439,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08288,
+ 	0.154155) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.00295121,
+ 	0.00101519,
+ 	210.791,
+ 	210.169,
+ 	2.04048,
+ 	1.42845,
+ 	1.20017,
+ 	1.00000,
+ 	515.000,
+ 	1.52437,
+ 	-178.967,
+ 	-173.697,
+ 	Infinity,
+ 	127.272)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (728.9797769964415,-3)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03726,
+ 	0.133317) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.0344915,
+ 	-0.0365003,
+ 	153.587,
+ 	158.885,
+ 	1.54257,
+ 	1.24200,
+ 	1.04442,
+ 	1.00000,
+ 	515.000,
+ 	-17.1709,
+ 	-165.655,
+ 	-160.386,
+ 	Infinity,
+ 	128.235)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (810.1673082246853,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.15762,
+ 	0.114596) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(0.00574006,
+ 	0.00380946,
+ 	189.018,
+ 	187.933,
+ 	1.82459,
+ 	1.35077,
+ 	1.13465,
+ 	1.00000,
+ 	515.000,
+ 	2.97320,
+ 	-173.195,
+ 	-167.926,
+ 	Infinity,
+ 	139.576)
+------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 1) ADD variable (3, month) => cols = LinkedHashSet(0, 3) @ 0.01114352685365072 |
+------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (991.0390124715005,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (993.7394059627627,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (995.8864941377118,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (995.7227037977927,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (995.6769582144794,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (991.5391813345832,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (994.8744859875709,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (995.7728846674237,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (994.0600372270034,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (989.9192633224175,259)
+optimize2: bSize = 20, nB = 25
+ending epoch = (995.4444759755149,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (723.038785691021,320)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03886,
+ 	0.145689,
+ 	0.119440) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0368896,
+ 	-0.0409242,
+ 	260.341,
+ 	269.945,
+ 	2.62083,
+ 	1.61890,
+ 	1.29624,
+ 	2.00000,
+ 	514.000,
+ 	-9.14333,
+ 	-192.595,
+ 	-184.691,
+ 	Infinity,
+ 	127.186)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (723.038785691021,-3)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03886,
+ 	0.145689,
+ 	0.119440) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(0.00159545,
+ 	-0.00228939,
+ 	165.033,
+ 	164.769,
+ 	1.59970,
+ 	1.26479,
+ 	1.02466,
+ 	2.00000,
+ 	514.000,
+ 	0.410687,
+ 	-165.131,
+ 	-157.226,
+ 	Infinity,
+ 	129.040)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (781.5027675480474,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08563,
+ 	0.164852,
+ 	0.109540) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.00963237,
+ 	0.00577880,
+ 	210.791,
+ 	208.761,
+ 	2.02680,
+ 	1.42366,
+ 	1.18209,
+ 	2.00000,
+ 	514.000,
+ 	2.49960,
+ 	-176.618,
+ 	-168.714,
+ 	Infinity,
+ 	126.204)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (826.0345008251591,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13239,
+ 	0.238776,
+ 	0.120255) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.0848624,
+ 	-0.0890837,
+ 	153.587,
+ 	166.621,
+ 	1.61768,
+ 	1.27188,
+ 	1.07140,
+ 	2.00000,
+ 	514.000,
+ 	-20.1036,
+ 	-165.614,
+ 	-157.710,
+ 	Infinity,
+ 	128.308)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (808.721725002688,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.15798,
+ 	0.118484,
+ 	0.0610406) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(0.0233719,
+ 	0.0195718,
+ 	189.018,
+ 	184.600,
+ 	1.79224,
+ 	1.33874,
+ 	1.12018,
+ 	2.00000,
+ 	514.000,
+ 	6.15032,
+ 	-170.309,
+ 	-162.405,
+ 	Infinity,
+ 	139.182)
+-----------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 2) ADD variable (11, wind) => cols = LinkedHashSet(0, 3, 11) @ 0.015192170047691356 |
+-----------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (985.1781858641841,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (987.5406043287318,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (989.9050386743913,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (989.7109375773209,363)
+optimize2: bSize = 20, nB = 25
+ending epoch = (989.4644557615561,207)
+optimize2: bSize = 20, nB = 25
+ending epoch = (987.9364441294858,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (988.1173425050199,281)
+optimize2: bSize = 20, nB = 25
+ending epoch = (989.0648474298669,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (987.6122840063629,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (989.6285142186615,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (718.0503346187231,289)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.04048,
+ 	0.150526,
+ 	0.118521,
+ 	0.109482) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0379758,
+ 	-0.0440459,
+ 	260.341,
+ 	270.228,
+ 	2.62357,
+ 	1.61974,
+ 	1.29540,
+ 	3.00000,
+ 	513.000,
+ 	-6.25628,
+ 	-190.762,
+ 	-180.223,
+ 	Infinity,
+ 	127.023)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (718.0503346187231,-3)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.04048,
+ 	0.150526,
+ 	0.118521,
+ 	0.109482) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(0.0267264,
+ 	0.0210348,
+ 	165.033,
+ 	160.622,
+ 	1.55944,
+ 	1.24877,
+ 	1.02187,
+ 	3.00000,
+ 	513.000,
+ 	4.69572,
+ 	-162.002,
+ 	-151.463,
+ 	Infinity,
+ 	129.687)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (780.0927646952258,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08436,
+ 	0.168825,
+ 	0.111059,
+ 	0.0576423) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0216535,
+ 	0.0159321,
+ 	210.791,
+ 	206.227,
+ 	2.00220,
+ 	1.41499,
+ 	1.17190,
+ 	3.00000,
+ 	513.000,
+ 	3.78469,
+ 	-173.968,
+ 	-163.430,
+ 	Infinity,
+ 	126.035)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (814.3603610584213,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13754,
+ 	0.250355,
+ 	0.123634,
+ 	0.168078) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.148884,
+ 	-0.155603,
+ 	153.587,
+ 	176.454,
+ 	1.71314,
+ 	1.30887,
+ 	1.10720,
+ 	3.00000,
+ 	513.000,
+ 	-22.1599,
+ 	-166.156,
+ 	-155.617,
+ 	Infinity,
+ 	130.003)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (804.6637486624196,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.15884,
+ 	0.130470,
+ 	0.0523812,
+ 	0.100713) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(0.0261632,
+ 	0.0204682,
+ 	189.018,
+ 	184.073,
+ 	1.78711,
+ 	1.33683,
+ 	1.11665,
+ 	3.00000,
+ 	513.000,
+ 	4.59410,
+ 	-168.155,
+ 	-157.617,
+ 	Infinity,
+ 	139.259)
+---------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 3) ADD variable (1, X) => cols = LinkedHashSet(0, 3, 11, 1) @ 0.01799825779701736 |
+---------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (984.9844462842905,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (985.1428067729748,287)
+optimize2: bSize = 20, nB = 25
+ending epoch = (984.9650549816091,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (984.656542677792,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (983.3757068631146,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (983.2725364128457,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (984.2079674132782,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (982.3000755083369,322)
+optimize2: bSize = 20, nB = 25
+ending epoch = (985.0199207098498,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (716.9580840597141,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03748,
+ 	0.145681,
+ 	0.120048,
+ 	0.112175,
+ 	-0.0521467) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0329081,
+ 	-0.0409777,
+ 	260.341,
+ 	268.909,
+ 	2.61076,
+ 	1.61579,
+ 	1.28815,
+ 	4.00000,
+ 	512.000,
+ 	-4.07804,
+ 	-188.472,
+ 	-175.298,
+ 	Infinity,
+ 	127.055)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (820.237555784498,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.14457,
+ 	0.176538,
+ 	0.128207,
+ 	0.0618211,
+ 	-0.0565856) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(0.00764492,
+ 	-0.000107856,
+ 	165.033,
+ 	163.771,
+ 	1.59001,
+ 	1.26096,
+ 	1.05052,
+ 	4.00000,
+ 	512.000,
+ 	0.986088,
+ 	-160.804,
+ 	-147.630,
+ 	Infinity,
+ 	128.089)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (780.0130928386832,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08551,
+ 	0.167994,
+ 	0.112760,
+ 	0.0588175,
+ 	-0.0146214) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0261989,
+ 	0.0185911,
+ 	210.791,
+ 	205.269,
+ 	1.99290,
+ 	1.41170,
+ 	1.16941,
+ 	4.00000,
+ 	512.000,
+ 	3.44368,
+ 	-171.724,
+ 	-158.551,
+ 	Infinity,
+ 	125.853)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (808.3347358868912,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13352,
+ 	0.245234,
+ 	0.132329,
+ 	0.181571,
+ 	-0.120587) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.179273,
+ 	-0.188486,
+ 	153.587,
+ 	181.121,
+ 	1.75846,
+ 	1.32607,
+ 	1.11554,
+ 	4.00000,
+ 	512.000,
+ 	-19.4586,
+ 	-165.370,
+ 	-152.196,
+ 	Infinity,
+ 	131.022)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (716.9566869846838,306)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03882,
+ 	0.146297,
+ 	0.120078,
+ 	0.111930,
+ 	-0.0529751) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(0.0574869,
+ 	0.0501235,
+ 	189.018,
+ 	178.152,
+ 	1.72963,
+ 	1.31515,
+ 	1.06729,
+ 	4.00000,
+ 	512.000,
+ 	7.80713,
+ 	-164.588,
+ 	-151.415,
+ 	Infinity,
+ 	141.177)
+---------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 4) ADD variable (10, RH) => cols = LinkedHashSet(0, 3, 11, 1, 10) @ 0.01895471948765881 |
+---------------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (982.0788372896933,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (982.1866707607818,273)
+optimize2: bSize = 20, nB = 25
+ending epoch = (982.3001992676865,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (981.3559218692628,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (980.8621267082642,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (979.7070526315297,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (982.2912950479513,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (981.9886473407872,314)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (715.1458280503794,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03785,
+ 	0.160191,
+ 	0.131789,
+ 	0.113763,
+ 	-0.0642004,
+ 	-0.0685145) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0294657,
+ 	-0.0395388,
+ 	260.341,
+ 	268.012,
+ 	2.60206,
+ 	1.61309,
+ 	1.28134,
+ 	5.00000,
+ 	511.000,
+ 	-2.92520,
+ 	-186.286,
+ 	-170.478,
+ 	Infinity,
+ 	127.152)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (715.1455166991339,340)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03688,
+ 	0.160269,
+ 	0.131679,
+ 	0.113507,
+ 	-0.0639289,
+ 	-0.0685602) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(0.0399800,
+ 	0.0305864,
+ 	165.033,
+ 	158.435,
+ 	1.53820,
+ 	1.24024,
+ 	1.01413,
+ 	5.00000,
+ 	511.000,
+ 	4.25611,
+ 	-157.374,
+ 	-141.565,
+ 	Infinity,
+ 	129.230)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (778.4303137259069,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08542,
+ 	0.181730,
+ 	0.120015,
+ 	0.0604837,
+ 	-0.0209016,
+ 	-0.0627012) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0303138,
+ 	0.0208257,
+ 	210.791,
+ 	204.401,
+ 	1.98448,
+ 	1.40872,
+ 	1.16558,
+ 	5.00000,
+ 	511.000,
+ 	3.19492,
+ 	-169.502,
+ 	-153.694,
+ 	Infinity,
+ 	125.711)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (807.6387009828311,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13424,
+ 	0.252662,
+ 	0.136291,
+ 	0.181125,
+ 	-0.125419,
+ 	-0.0478433) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.167282,
+ 	-0.178704,
+ 	153.587,
+ 	179.279,
+ 	1.74058,
+ 	1.31931,
+ 	1.10944,
+ 	5.00000,
+ 	511.000,
+ 	-14.6462,
+ 	-162.874,
+ 	-147.065,
+ 	Infinity,
+ 	130.681)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (791.7489299451084,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.16026,
+ 	0.136037,
+ 	0.0738304,
+ 	0.120910,
+ 	-0.156058,
+ 	-0.109095) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(-0.0302317,
+ 	-0.0403122,
+ 	189.018,
+ 	194.732,
+ 	1.89061,
+ 	1.37499,
+ 	1.14891,
+ 	5.00000,
+ 	511.000,
+ 	-2.99901,
+ 	-166.951,
+ 	-151.143,
+ 	Infinity,
+ 	139.827)
+-------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 5) ADD variable (8, ISI) => cols = LinkedHashSet(0, 3, 11, 1, 10, 8) @ 0.019629644172937777 |
+-------------------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (979.5140854450058,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (979.5283501046625,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (978.7036201288289,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (977.4675698245105,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (979.0099641149508,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (979.0870999041681,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (979.2519458909591,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (713.0097331050398,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03748,
+ 	0.125224,
+ 	0.142115,
+ 	0.116515,
+ 	-0.0737562,
+ 	-0.0898247,
+ 	0.0856618) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0295923,
+ 	-0.0417052,
+ 	260.341,
+ 	268.045,
+ 	2.60238,
+ 	1.61319,
+ 	1.28307,
+ 	6.00000,
+ 	510.000,
+ 	-2.44305,
+ 	-184.339,
+ 	-165.896,
+ 	Infinity,
+ 	127.183)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (814.6247260280517,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.14507,
+ 	0.139117,
+ 	0.149974,
+ 	0.0671492,
+ 	-0.0840356,
+ 	-0.0926614,
+ 	0.113076) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(-4.01946e-05,
+ 	-0.0118054,
+ 	165.033,
+ 	165.039,
+ 	1.60232,
+ 	1.26583,
+ 	1.05087,
+ 	6.00000,
+ 	510.000,
+ 	-0.00341640,
+ 	-157.098,
+ 	-138.655,
+ 	Infinity,
+ 	127.660)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (776.7688970874774,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08514,
+ 	0.147194,
+ 	0.127167,
+ 	0.0643816,
+ 	-0.0321301,
+ 	-0.0781791,
+ 	0.0767943) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0328838,
+ 	0.0215060,
+ 	210.791,
+ 	203.860,
+ 	1.97922,
+ 	1.40685,
+ 	1.16315,
+ 	6.00000,
+ 	510.000,
+ 	2.89017,
+ 	-167.365,
+ 	-148.922,
+ 	Infinity,
+ 	125.695)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (713.0097207183251,254)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03767,
+ 	0.124831,
+ 	0.141960,
+ 	0.116590,
+ 	-0.0735439,
+ 	-0.0899096,
+ 	0.0860502) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.0703046,
+ 	-0.0828964,
+ 	153.587,
+ 	164.385,
+ 	1.59597,
+ 	1.26332,
+ 	1.06227,
+ 	6.00000,
+ 	510.000,
+ 	-5.58336,
+ 	-156.925,
+ 	-138.482,
+ 	Infinity,
+ 	130.699)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (791.4251903415433,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.16229,
+ 	0.121095,
+ 	0.0779294,
+ 	0.121238,
+ 	-0.162417,
+ 	-0.119361,
+ 	0.0358137) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(-0.0244583,
+ 	-0.0365107,
+ 	189.018,
+ 	193.641,
+ 	1.88001,
+ 	1.37113,
+ 	1.14483,
+ 	6.00000,
+ 	510.000,
+ 	-2.02932,
+ 	-164.662,
+ 	-146.219,
+ 	Infinity,
+ 	139.397)
+----------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 6) ADD variable (6, DMC) => cols = LinkedHashSet(0, 3, 11, 1, 10, 8, 6) @ 0.019952742505130017 |
+----------------------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (977.3535149086961,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (977.3730511616191,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (977.1528929712346,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (973.8845416635205,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (977.4904334151431,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (977.1143509372998,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (710.7488654100742,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03736,
+ 	0.241785,
+ 	0.124628,
+ 	0.113804,
+ 	-0.0714700,
+ 	-0.0874134,
+ 	0.143321,
+ 	-0.169237) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0211331,
+ 	-0.0351761,
+ 	260.341,
+ 	265.843,
+ 	2.58100,
+ 	1.60655,
+ 	1.27398,
+ 	7.00000,
+ 	509.000,
+ 	-1.50487,
+ 	-181.826,
+ 	-160.748,
+ 	Infinity,
+ 	126.862)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (807.005553294992,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.14613,
+ 	0.329627,
+ 	0.118049,
+ 	0.0626363,
+ 	-0.0843982,
+ 	-0.0916882,
+ 	0.207601,
+ 	-0.281380) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(-0.0126232,
+ 	-0.0265492,
+ 	165.033,
+ 	167.116,
+ 	1.62248,
+ 	1.27377,
+ 	1.05711,
+ 	7.00000,
+ 	509.000,
+ 	-0.906444,
+ 	-155.621,
+ 	-134.543,
+ 	Infinity,
+ 	127.372)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (772.9813013867395,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08694,
+ 	0.345374,
+ 	0.100441,
+ 	0.0573210,
+ 	-0.0276987,
+ 	-0.0819344,
+ 	0.163101,
+ 	-0.271914) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0404382,
+ 	0.0272419,
+ 	210.791,
+ 	202.267,
+ 	1.96376,
+ 	1.40134,
+ 	1.14776,
+ 	7.00000,
+ 	509.000,
+ 	3.06435,
+ 	-164.951,
+ 	-143.873,
+ 	Infinity,
+ 	124.783)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (802.9431965480221,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13331,
+ 	0.380326,
+ 	0.121081,
+ 	0.180588,
+ 	-0.137396,
+ 	-0.0640116,
+ 	0.160710,
+ 	-0.230331) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.151154,
+ 	-0.166985,
+ 	153.587,
+ 	176.802,
+ 	1.71653,
+ 	1.31016,
+ 	1.10715,
+ 	7.00000,
+ 	509.000,
+ 	-9.54785,
+ 	-158.192,
+ 	-137.114,
+ 	Infinity,
+ 	131.296)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (785.7067539407309,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.15912,
+ 	0.323399,
+ 	0.0458130,
+ 	0.110035,
+ 	-0.161249,
+ 	-0.114130,
+ 	0.144204,
+ 	-0.297042) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(-0.0245307,
+ 	-0.0386205,
+ 	189.018,
+ 	193.655,
+ 	1.88014,
+ 	1.37118,
+ 	1.13921,
+ 	7.00000,
+ 	509.000,
+ 	-1.74102,
+ 	-162.665,
+ 	-141.587,
+ 	Infinity,
+ 	139.590)
+-----------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 7) ADD variable (7, DC) => cols = LinkedHashSet(0, 3, 11, 1, 10, 8, 6, 7) @ 0.02162684810082871 |
+-----------------------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (973.9966448607996,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (973.6825730762806,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (973.4123850196127,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (973.3438360835298,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (973.4395902187285,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (710.7116475130666,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03793,
+ 	0.248881,
+ 	0.124620,
+ 	0.112544,
+ 	-0.0675346,
+ 	-0.0896805,
+ 	0.142337,
+ 	-0.179682,
+ 	0.00789191) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0200518,
+ 	-0.0361156,
+ 	260.341,
+ 	265.561,
+ 	2.57827,
+ 	1.60570,
+ 	1.27321,
+ 	8.00000,
+ 	508.000,
+ 	-1.24826,
+ 	-179.762,
+ 	-156.050,
+ 	Infinity,
+ 	126.838)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (806.2722152190199,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.14528,
+ 	0.336355,
+ 	0.124913,
+ 	0.0608523,
+ 	-0.0578385,
+ 	-0.103091,
+ 	0.194099,
+ 	-0.300523,
+ 	0.0548216) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(-0.0140427,
+ 	-0.0300119,
+ 	165.033,
+ 	167.350,
+ 	1.62476,
+ 	1.27466,
+ 	1.05793,
+ 	8.00000,
+ 	508.000,
+ 	-0.879362,
+ 	-153.679,
+ 	-129.967,
+ 	Infinity,
+ 	127.370)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (772.8714183512506,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08609,
+ 	0.350554,
+ 	0.103223,
+ 	0.0570443,
+ 	-0.0134602,
+ 	-0.0870255,
+ 	0.156735,
+ 	-0.284749,
+ 	0.0266148) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0415983,
+ 	0.0265054,
+ 	210.791,
+ 	202.023,
+ 	1.96138,
+ 	1.40049,
+ 	1.14822,
+ 	8.00000,
+ 	508.000,
+ 	2.75615,
+ 	-162.887,
+ 	-139.175,
+ 	Infinity,
+ 	124.877)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (799.7952478155244,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13334,
+ 	0.397609,
+ 	0.141672,
+ 	0.180063,
+ 	-0.0705184,
+ 	-0.0992112,
+ 	0.129085,
+ 	-0.272166,
+ 	0.135852) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.175995,
+ 	-0.194514,
+ 	153.587,
+ 	180.618,
+ 	1.75357,
+ 	1.32422,
+ 	1.12333,
+ 	8.00000,
+ 	508.000,
+ 	-9.50315,
+ 	-157.203,
+ 	-133.490,
+ 	Infinity,
+ 	132.390)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (785.716260694151,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.15906,
+ 	0.337188,
+ 	0.0472734,
+ 	0.107473,
+ 	-0.150032,
+ 	-0.117801,
+ 	0.139099,
+ 	-0.316170,
+ 	0.0177580) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(-0.0233538,
+ 	-0.0394696,
+ 	189.018,
+ 	193.432,
+ 	1.87798,
+ 	1.37040,
+ 	1.13829,
+ 	8.00000,
+ 	508.000,
+ 	-1.44913,
+ 	-160.606,
+ 	-136.894,
+ 	Infinity,
+ 	139.638)
+-----------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 8) ADD variable (9, temp) => cols = LinkedHashSet(0, 3, 11, 1, 10, 8, 6, 7, 9) @ 0.020245183665118738 |
+-----------------------------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (973.4592884437376,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (973.2350348246694,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (972.9166136826278,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (973.0151643498167,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (710.6958682433417,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03677,
+ 	0.249681,
+ 	0.125658,
+ 	0.114263,
+ 	-0.0619783,
+ 	-0.0969734,
+ 	0.138682,
+ 	-0.183003,
+ 	0.0108986,
+ 	0.0158961) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0194520,
+ 	-0.0375488,
+ 	260.341,
+ 	265.405,
+ 	2.57675,
+ 	1.60523,
+ 	1.27256,
+ 	9.00000,
+ 	507.000,
+ 	-1.07489,
+ 	-177.729,
+ 	-151.382,
+ 	Infinity,
+ 	126.862)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (805.4561132330518,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.14229,
+ 	0.335906,
+ 	0.131107,
+ 	0.0604066,
+ 	-0.0464531,
+ 	-0.129678,
+ 	0.182209,
+ 	-0.302946,
+ 	0.0496723,
+ 	0.0790680) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(-0.0174323,
+ 	-0.0354932,
+ 	165.033,
+ 	167.910,
+ 	1.63019,
+ 	1.27679,
+ 	1.05936,
+ 	9.00000,
+ 	507.000,
+ 	-0.965195,
+ 	-151.825,
+ 	-125.477,
+ 	Infinity,
+ 	127.699)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (772.0460054660941,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08779,
+ 	0.349787,
+ 	0.106860,
+ 	0.0562997,
+ 	0.00253700,
+ 	-0.115520,
+ 	0.140992,
+ 	-0.288580,
+ 	0.0296432,
+ 	0.0674253) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0395901,
+ 	0.0225414,
+ 	210.791,
+ 	202.446,
+ 	1.96549,
+ 	1.40196,
+ 	1.15293,
+ 	9.00000,
+ 	507.000,
+ 	2.32218,
+ 	-161.001,
+ 	-134.654,
+ 	Infinity,
+ 	124.890)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (799.6320552232745,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13160,
+ 	0.397990,
+ 	0.145904,
+ 	0.179768,
+ 	-0.0618320,
+ 	-0.117929,
+ 	0.121341,
+ 	-0.273334,
+ 	0.140055,
+ 	0.0324474) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.173191,
+ 	-0.194017,
+ 	153.587,
+ 	180.187,
+ 	1.74939,
+ 	1.32264,
+ 	1.12110,
+ 	9.00000,
+ 	507.000,
+ 	-8.31615,
+ 	-155.087,
+ 	-128.739,
+ 	Infinity,
+ 	132.440)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (785.0294122338291,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.15699,
+ 	0.339871,
+ 	0.0509339,
+ 	0.106394,
+ 	-0.138496,
+ 	-0.143677,
+ 	0.125581,
+ 	-0.321822,
+ 	0.0172997,
+ 	0.0687914) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(-0.0248097,
+ 	-0.0430016,
+ 	189.018,
+ 	193.708,
+ 	1.88066,
+ 	1.37137,
+ 	1.14111,
+ 	9.00000,
+ 	507.000,
+ 	-1.36378,
+ 	-158.679,
+ 	-132.332,
+ 	NaN,
+ 	NaN)
+-------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 9) ADD variable (5, FFMC) => cols = LinkedHashSet(0, 3, 11, 1, 10, 8, 6, 7, 9, 5) @ 0.01874361292761595 |
+-------------------------------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (972.9804026151975,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (972.782136718152,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (972.6329464264606,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (707.4935498378144,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03155,
+ 	0.247736,
+ 	0.134874,
+ 	0.118437,
+ 	-0.0474039,
+ 	-0.0969967,
+ 	0.140743,
+ 	-0.179658,
+ 	0.0179975,
+ 	0.0202716,
+ 	-0.177098) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0349041,
+ 	-0.0553567,
+ 	260.341,
+ 	269.428,
+ 	2.61581,
+ 	1.61735,
+ 	1.28505,
+ 	10.0000,
+ 	506.000,
+ 	-1.70658,
+ 	-176.804,
+ 	-147.822,
+ 	Infinity,
+ 	127.927)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (805.2457108380347,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.14348,
+ 	0.335864,
+ 	0.129994,
+ 	0.0605256,
+ 	-0.0501454,
+ 	-0.130022,
+ 	0.180665,
+ 	-0.301908,
+ 	0.0481475,
+ 	0.0783361,
+ 	0.0211065) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(-0.0170521,
+ 	-0.0371519,
+ 	165.033,
+ 	167.847,
+ 	1.62958,
+ 	1.27655,
+ 	1.05920,
+ 	10.0000,
+ 	506.000,
+ 	-0.848368,
+ 	-149.806,
+ 	-120.824,
+ 	Infinity,
+ 	127.684)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (771.5616441013466,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08684,
+ 	0.349782,
+ 	0.104152,
+ 	0.0537750,
+ 	-0.00530989,
+ 	-0.115129,
+ 	0.140976,
+ 	-0.287302,
+ 	0.0220368,
+ 	0.0648594,
+ 	0.0321445) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0381691,
+ 	0.0191606,
+ 	210.791,
+ 	202.745,
+ 	1.96840,
+ 	1.40300,
+ 	1.15463,
+ 	10.0000,
+ 	506.000,
+ 	2.00800,
+ 	-159.081,
+ 	-130.099,
+ 	Infinity,
+ 	125.032)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (799.2878049697013,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13129,
+ 	0.398367,
+ 	0.142867,
+ 	0.176914,
+ 	-0.0685472,
+ 	-0.116775,
+ 	0.122433,
+ 	-0.270488,
+ 	0.132689,
+ 	0.0298589,
+ 	0.0276278) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.173954,
+ 	-0.197155,
+ 	153.587,
+ 	180.304,
+ 	1.75053,
+ 	1.32307,
+ 	1.12086,
+ 	10.0000,
+ 	506.000,
+ 	-7.49780,
+ 	-153.117,
+ 	-124.135,
+ 	Infinity,
+ 	132.416)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (784.3201140169655,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.15711,
+ 	0.339362,
+ 	0.0473237,
+ 	0.104528,
+ 	-0.147711,
+ 	-0.142267,
+ 	0.125133,
+ 	-0.320690,
+ 	0.00833477,
+ 	0.0655619,
+ 	0.0370761) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(-0.0288474,
+ 	-0.0491804,
+ 	189.018,
+ 	194.471,
+ 	1.88807,
+ 	1.37407,
+ 	1.14323,
+ 	10.0000,
+ 	506.000,
+ 	-1.41875,
+ 	-156.882,
+ 	-127.900,
+ 	NaN,
+ 	NaN)
+--------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 10) ADD variable (12, rain) => cols = LinkedHashSet(0, 3, 11, 1, 10, 8, 6, 7, 9, 5, 12) @ 0.017091035300755397 |
+--------------------------------------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (972.64206550318,400)
+optimize2: bSize = 20, nB = 25
+ending epoch = (972.4707336936116,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (707.4970843591558,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03159,
+ 	0.247660,
+ 	0.134104,
+ 	0.118507,
+ 	-0.0496676,
+ 	-0.0966404,
+ 	0.140821,
+ 	-0.180807,
+ 	0.0164778,
+ 	0.0206463,
+ 	-0.175309,
+ 	0.00707803) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0346018,
+ 	-0.0571377,
+ 	260.341,
+ 	269.349,
+ 	2.61504,
+ 	1.61711,
+ 	1.28583,
+ 	11.0000,
+ 	505.000,
+ 	-1.53541,
+ 	-174.786,
+ 	-143.169,
+ 	Infinity,
+ 	127.991)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (804.9570963929781,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.14244,
+ 	0.338189,
+ 	0.128807,
+ 	0.0619458,
+ 	-0.0541204,
+ 	-0.130750,
+ 	0.179685,
+ 	-0.302993,
+ 	0.0426806,
+ 	0.0799223,
+ 	0.0239850,
+ 	0.0261039) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(-0.0177865,
+ 	-0.0399561,
+ 	165.033,
+ 	167.968,
+ 	1.63076,
+ 	1.27701,
+ 	1.06041,
+ 	11.0000,
+ 	505.000,
+ 	-0.802292,
+ 	-147.837,
+ 	-116.220,
+ 	Infinity,
+ 	127.821)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (771.560084235341,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08684,
+ 	0.351619,
+ 	0.104126,
+ 	0.0538369,
+ 	-0.00477519,
+ 	-0.115448,
+ 	0.141810,
+ 	-0.286267,
+ 	0.0209511,
+ 	0.0654155,
+ 	0.0332223,
+ 	0.00210435) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0378715,
+ 	0.0169143,
+ 	210.791,
+ 	202.808,
+ 	1.96901,
+ 	1.40321,
+ 	1.15479,
+ 	11.0000,
+ 	505.000,
+ 	1.80709,
+ 	-157.098,
+ 	-125.481,
+ 	Infinity,
+ 	125.043)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (797.9777508770362,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13257,
+ 	0.404475,
+ 	0.139678,
+ 	0.178289,
+ 	-0.0791282,
+ 	-0.112166,
+ 	0.120621,
+ 	-0.271003,
+ 	0.121009,
+ 	0.0303519,
+ 	0.0321456,
+ 	0.0583949) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.189643,
+ 	-0.215556,
+ 	153.587,
+ 	182.714,
+ 	1.77392,
+ 	1.33189,
+ 	1.12597,
+ 	11.0000,
+ 	505.000,
+ 	-7.31843,
+ 	-151.757,
+ 	-120.140,
+ 	NaN,
+ 	NaN)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (784.312717322693,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.15688,
+ 	0.338555,
+ 	0.0471453,
+ 	0.103328,
+ 	-0.147124,
+ 	-0.142224,
+ 	0.127100,
+ 	-0.321646,
+ 	0.00712471,
+ 	0.0649229,
+ 	0.0371192,
+ 	-0.00269345) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(-0.0289862,
+ 	-0.0513997,
+ 	189.018,
+ 	194.497,
+ 	1.88832,
+ 	1.37416,
+ 	1.14347,
+ 	11.0000,
+ 	505.000,
+ 	-1.29324,
+ 	-154.889,
+ 	-123.272,
+ 	NaN,
+ 	NaN)
+---------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 11) ADD variable (4, day) => cols = LinkedHashSet(0, 3, 11, 1, 10, 8, 6, 7, 9, 5, 12, 4) @ 0.015308932057800928 |
+---------------------------------------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 25
+ending epoch = (972.5117000043789,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (707.1429800133078,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.03257,
+ 	0.244996,
+ 	0.134704,
+ 	0.0982813,
+ 	-0.0495237,
+ 	-0.0945312,
+ 	0.134735,
+ 	-0.171455,
+ 	0.0157110,
+ 	0.0210922,
+ 	-0.174338,
+ 	0.00667674,
+ 	0.0370264) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(-0.0374211,
+ 	-0.0621216,
+ 	260.341,
+ 	270.083,
+ 	2.62217,
+ 	1.61931,
+ 	1.28643,
+ 	12.0000,
+ 	504.000,
+ 	-1.51499,
+ 	-172.980,
+ 	-138.729,
+ 	Infinity,
+ 	127.932)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (802.7212132209075,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.14332,
+ 	0.343021,
+ 	0.129150,
+ 	0.104311,
+ 	-0.0513428,
+ 	-0.135444,
+ 	0.186139,
+ 	-0.315476,
+ 	0.0468024,
+ 	0.0805586,
+ 	0.0228006,
+ 	0.0266233,
+ 	-0.0836205) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(-0.0466785,
+ 	-0.0715994,
+ 	165.033,
+ 	172.736,
+ 	1.67705,
+ 	1.29501,
+ 	1.07676,
+ 	12.0000,
+ 	504.000,
+ 	-1.87307,
+ 	-147.105,
+ 	-112.853,
+ 	Infinity,
+ 	128.730)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (770.9816161765525,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.08820,
+ 	0.353850,
+ 	0.106129,
+ 	0.0315811,
+ 	-0.00567125,
+ 	-0.115638,
+ 	0.137731,
+ 	-0.288289,
+ 	0.0204093,
+ 	0.0670060,
+ 	0.0327492,
+ 	0.000913928,
+ 	0.0436169) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.0322790,
+ 	0.00923802,
+ 	210.791,
+ 	203.987,
+ 	1.98046,
+ 	1.40729,
+ 	1.15908,
+ 	12.0000,
+ 	504.000,
+ 	1.40094,
+ 	-155.411,
+ 	-121.160,
+ 	Infinity,
+ 	125.100)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (797.9715485603003,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.13161,
+ 	0.403169,
+ 	0.140155,
+ 	0.174725,
+ 	-0.0799199,
+ 	-0.112590,
+ 	0.118396,
+ 	-0.267657,
+ 	0.120666,
+ 	0.0310404,
+ 	0.0323653,
+ 	0.0594355,
+ 	0.00792987) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(-0.190276,
+ 	-0.218616,
+ 	153.587,
+ 	182.811,
+ 	1.77486,
+ 	1.33224,
+ 	1.12580,
+ 	12.0000,
+ 	504.000,
+ 	-6.71406,
+ 	-149.783,
+ 	-115.531,
+ 	NaN,
+ 	NaN)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 103
+DEBUG @ PredictorMV.validate: test set size = 103
+optimize2: bSize = 20, nB = 20
+ending epoch = (784.2703966337216,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(1.15697,
+ 	0.338980,
+ 	0.0456573,
+ 	0.112326,
+ 	-0.146272,
+ 	-0.142658,
+ 	0.128487,
+ 	-0.322349,
+ 	0.00801061,
+ 	0.0641671,
+ 	0.0370065,
+ 	-0.00296771,
+ 	-0.0114736) 
+ b.b = null
+ERROR @ CDF.fisherCDF: coordinate x should be nonnegative
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(-0.0292522,
+ 	-0.0537582,
+ 	189.018,
+ 	194.547,
+ 	1.88881,
+ 	1.37434,
+ 	1.14440,
+ 	12.0000,
+ 	504.000,
+ 	-1.19367,
+ 	-152.902,
+ 	-118.651,
+ 	NaN,
+ 	NaN)
+----------------------------------------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 12) ADD variable (2, Y) => cols = LinkedHashSet(0, 3, 11, 1, 10, 8, 6, 7, 9, 5, 12, 4, 2) @ 0.013313616530412409 |
+----------------------------------------------------------------------------------------------------------------------------------------
+k = 13, n = 13
+Run + title
+x-axis: minX = 0.0, maxX = 12.0
+y-axis: minY = -6.0, maxY = 4.0
+rSq = 
+MatrixD(1.30599,	1.11435,	-1.48962,
+ 	1.90093,	1.51922,	-1.74305,
+ 	2.37076,	1.79983,	-2.24634,
+ 	2.65597,	1.89547,	-2.41701,
+ 	2.91294,	1.96296,	-3.13372,
+ 	3.13486,	1.99527,	-1.83023,
+ 	3.48994,	2.16268,	-3.38005,
+ 	3.54352,	2.02452,	-3.83689,
+ 	3.58585,	1.87436,	-3.90590,
+ 	3.61397,	1.70910,	-4.33177,
+ 	3.63004,	1.53089,	-4.66291,
+ 	3.62598,	1.33136,	-5.42697)

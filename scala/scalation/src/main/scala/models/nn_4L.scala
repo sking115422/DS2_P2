@@ -369,7 +369,7 @@ end nn_4L_reLU_AutoMPG
 /** The `nn_XL_sigmoid_ForestFires` main function tests the `NeuralNet_XL` class using the
  *  ForestFires dataset.  It tries the sigmoid acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_sigmoid_ForestFires
+ *  > runMain scalation.modeling.neuralnet.nn_4L_sigmoid_ForestFires
  */
 @main def nn_4L_sigmoid_ForestFires (): Unit = 
 
@@ -411,7 +411,7 @@ end nn_4L_sigmoid_ForestFires
 /** The `nn_XL_tanh_ForestFires` main function tests the `NeuralNet_XL` class using the
  *  ForestFires dataset.  It tries the tanh acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_tanh_ForestFires
+ *  > runMain scalation.modeling.neuralnet.nn_4L_tanh_ForestFires
  */
 @main def nn_4L_tanh_ForestFires (): Unit = 
 
@@ -453,7 +453,7 @@ end nn_4L_tanh_ForestFires
 /** The `nn_XL_reLU_ForestFires` main function tests the `NeuralNet_XL` class using the
  *  ForestFires dataset.  It tries the reLU acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_reLU_ForestFires
+ *  > runMain scalation.modeling.neuralnet.nn_4L_reLU_ForestFires
  */
 @main def nn_4L_reLU_ForestFires (): Unit = 
 
@@ -500,7 +500,7 @@ end nn_4L_reLU_ForestFires
 /** The `nn_XL_sigmoid_CCPP` main function tests the `NeuralNet_XL` class using the
  *  CCPP dataset.  It tries the sigmoid acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_sigmoid_CCPP
+ *  > runMain scalation.modeling.neuralnet.nn_4L_sigmoid_CCPP
  */
 @main def nn_4L_sigmoid_CCPP (): Unit = 
 
@@ -542,7 +542,7 @@ end nn_4L_sigmoid_CCPP
 /** The `nn_XL_tanh_CCPP` main function tests the `NeuralNet_XL` class using the
  *  CCPP dataset.  It tries the tanh acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_tanh_CCPP
+ *  > runMain scalation.modeling.neuralnet.nn_4L_tanh_CCPP
  */
 @main def nn_4L_tanh_CCPP (): Unit = 
 
@@ -584,7 +584,7 @@ end nn_4L_tanh_CCPP
 /** The `nn_XL_reLU_CCPP` main function tests the `NeuralNet_XL` class using the
  *  CCPP dataset.  It tries the reLU acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_reLU_CCPP
+ *  > runMain scalation.modeling.neuralnet.nn_4L_reLU_CCPP
  */
 @main def nn_4L_reLU_CCPP (): Unit = 
 

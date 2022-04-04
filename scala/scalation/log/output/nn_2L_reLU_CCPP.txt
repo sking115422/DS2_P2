@@ -1,0 +1,863 @@
+readFileIntoArray: C:\Users\Tango\Desktop\Projects\DS2_P2\scala\scalation\data\CCPP.csv
+load: read 99 data rows so far ...
+load: read 199 data rows so far ...
+load: read 299 data rows so far ...
+load: read 399 data rows so far ...
+load: read 499 data rows so far ...
+load: read 599 data rows so far ...
+load: read 699 data rows so far ...
+load: read 799 data rows so far ...
+load: read 899 data rows so far ...
+load: read 999 data rows so far ...
+load: read 1099 data rows so far ...
+load: read 1199 data rows so far ...
+load: read 1299 data rows so far ...
+load: read 1399 data rows so far ...
+load: read 1499 data rows so far ...
+load: read 1599 data rows so far ...
+load: read 1699 data rows so far ...
+load: read 1799 data rows so far ...
+load: read 1899 data rows so far ...
+load: read 1999 data rows so far ...
+load: read 2099 data rows so far ...
+load: read 2199 data rows so far ...
+load: read 2299 data rows so far ...
+load: read 2399 data rows so far ...
+load: read 2499 data rows so far ...
+load: read 2599 data rows so far ...
+load: read 2699 data rows so far ...
+load: read 2799 data rows so far ...
+load: read 2899 data rows so far ...
+load: read 2999 data rows so far ...
+load: read 3099 data rows so far ...
+load: read 3199 data rows so far ...
+load: read 3299 data rows so far ...
+load: read 3399 data rows so far ...
+load: read 3499 data rows so far ...
+load: read 3599 data rows so far ...
+load: read 3699 data rows so far ...
+load: read 3799 data rows so far ...
+load: read 3899 data rows so far ...
+load: read 3999 data rows so far ...
+load: read 4099 data rows so far ...
+load: read 4199 data rows so far ...
+load: read 4299 data rows so far ...
+load: read 4399 data rows so far ...
+load: read 4499 data rows so far ...
+load: read 4599 data rows so far ...
+load: read 4699 data rows so far ...
+load: read 4799 data rows so far ...
+load: read 4899 data rows so far ...
+load: read 4999 data rows so far ...
+load: read 5099 data rows so far ...
+load: read 5199 data rows so far ...
+load: read 5299 data rows so far ...
+load: read 5399 data rows so far ...
+load: read 5499 data rows so far ...
+load: read 5599 data rows so far ...
+load: read 5699 data rows so far ...
+load: read 5799 data rows so far ...
+load: read 5899 data rows so far ...
+load: read 5999 data rows so far ...
+load: read 6099 data rows so far ...
+load: read 6199 data rows so far ...
+load: read 6299 data rows so far ...
+load: read 6399 data rows so far ...
+load: read 6499 data rows so far ...
+load: read 6599 data rows so far ...
+load: read 6699 data rows so far ...
+load: read 6799 data rows so far ...
+load: read 6899 data rows so far ...
+load: read 6999 data rows so far ...
+load: read 7099 data rows so far ...
+load: read 7199 data rows so far ...
+load: read 7299 data rows so far ...
+load: read 7399 data rows so far ...
+load: read 7499 data rows so far ...
+load: read 7599 data rows so far ...
+load: read 7699 data rows so far ...
+load: read 7799 data rows so far ...
+load: read 7899 data rows so far ...
+load: read 7999 data rows so far ...
+load: read 8099 data rows so far ...
+load: read 8199 data rows so far ...
+load: read 8299 data rows so far ...
+load: read 8399 data rows so far ...
+load: read 8499 data rows so far ...
+load: read 8599 data rows so far ...
+load: read 8699 data rows so far ...
+load: read 8799 data rows so far ...
+load: read 8899 data rows so far ...
+load: read 8999 data rows so far ...
+load: read 9099 data rows so far ...
+load: read 9199 data rows so far ...
+load: read 9299 data rows so far ...
+load: read 9399 data rows so far ...
+load: read 9499 data rows so far ...
+load: read in an 9568-by-5 matrix from CCPP.csv
+ox_fname = Array(intercept, AT, V, AP, RH)
+-----------------------------------
+| NeuralNet_2L for CCPP with reLU |
+-----------------------------------
+auto_optimize: etaI = (2.5E-4,0.004)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 2.5E-4, result = (198703.81470097543,400)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 4.84375E-4, result = (198703.90885888002,400)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 7.1875E-4, result = (198704.34623579885,400)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 9.53125E-4, result = (198702.46840576662,282)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.0011875, result = (198702.46840576662,-3)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.001421875, result = (198702.46840576662,108)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.00165625, result = (198702.46840576662,-3)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.001890625, result = (198705.5695914222,400)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.002125, result = (198702.46840576662,305)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.0023593750000000004, result = (198702.46840576662,-3)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.0025937499999999997, result = (198709.48965890124,400)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.002828125, result = (198702.46840576662,137)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.0030625, result = (198702.46840576662,-3)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.0032968750000000003, result = (198747.1637570989,400)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.0035312499999999997, result = (198774.34791480834,400)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.003765625, result = (198714.9727187152,400)
+optimize2: bSize = 20, nB = 478
+auto_optimize: eta = 0.004, result = (198702.46840576662,311)
+ending epoch = (198702.46840576662,282)
+
+REPORT
+    ----------------------------------------------------------------------------
+    modelName  mn  = NeuralNet_2L_reLU
+    ----------------------------------------------------------------------------
+    hparameter hp  = HyperParameter (HashMap(lambda -> (0.01,0.01), maxEpochs -> (400,400), eta -> (0.1,0.1), nu -> (0.9,0.9), upLimit -> (4,4), beta -> (0.9,0.9), bSize -> (20,20)))
+    ----------------------------------------------------------------------------
+    features   fn  = Array(intercept, AT, V, AP, RH)
+    ----------------------------------------------------------------------------
+    parameter  bb  = Array(b.w = 
+MatrixD(454.366,
+ 	-14.7366,
+ 	-2.97300,
+ 	0.369203,
+ 	-2.30715) 
+ b.b = null)
+    ----------------------------------------------------------------------------
+    fitMap     qof = 
+		rSq 	 -> VectorD(0.928696) 
+		rSqBar 	 -> VectorD(0.928666) 
+		sst 	 -> VectorD(2.78670e+06) 
+		sse 	 -> VectorD(198702) 
+		mse0 	 -> VectorD(20.7674) 
+		rmse 	 -> VectorD(4.55713) 
+		mae 	 -> VectorD(3.62523) 
+		dfm 	 -> VectorD(4.00000) 
+		df 	 -> VectorD(9563.00) 
+		fStat 	 -> VectorD(31138.3) 
+		aic 	 -> VectorD(-28078.1) 
+		bic 	 -> VectorD(-28042.3) 
+		mape 	 -> VectorD(0.799518) 
+		smape 	 -> VectorD(0.799337) 
+
+    ----------------------------------------------------------------------------
+        
+Run + title
+--------------------
+| Cross-Validation |
+--------------------
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (160092.52241285692,67)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.366,
+ 	-14.7366,
+ 	-2.97300,
+ 	0.369203,
+ 	-2.30715) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(0.929411,
+ 	0.929381,
+ 	547098,
+ 	38619.3,
+ 	20.1878,
+ 	4.49308,
+ 	3.56290,
+ 	4.00000,
+ 	9563.00,
+ 	31477.7,
+ 	-5579.17,
+ 	-5551.39,
+ 	0.784545,
+ 	0.784353)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (160092.52241285692,-3)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.366,
+ 	-14.7366,
+ 	-2.97300,
+ 	0.369203,
+ 	-2.30715) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(0.932857,
+ 	0.932829,
+ 	545749,
+ 	36643.0,
+ 	19.1547,
+ 	4.37661,
+ 	3.53800,
+ 	4.00000,
+ 	9563.00,
+ 	33216.3,
+ 	-5531.59,
+ 	-5503.80,
+ 	0.779926,
+ 	0.779834)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (156812.93535904706,166)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.366,
+ 	-14.7366,
+ 	-2.97300,
+ 	0.369203,
+ 	-2.30715) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.926047,
+ 	0.926016,
+ 	566517,
+ 	41895.6,
+ 	21.9005,
+ 	4.67979,
+ 	3.70839,
+ 	4.00000,
+ 	9563.00,
+ 	29937.2,
+ 	-5658.05,
+ 	-5630.27,
+ 	0.818243,
+ 	0.817905)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (156812.93535904706,-3)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.366,
+ 	-14.7366,
+ 	-2.97300,
+ 	0.369203,
+ 	-2.30715) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(0.926833,
+ 	0.926803,
+ 	553654,
+ 	40509.1,
+ 	21.1757,
+ 	4.60171,
+ 	3.61530,
+ 	4.00000,
+ 	9563.00,
+ 	30284.6,
+ 	-5624.67,
+ 	-5596.88,
+ 	0.798334,
+ 	0.798475)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (156812.93535904706,237)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.366,
+ 	-14.7366,
+ 	-2.97300,
+ 	0.369203,
+ 	-2.30715) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(0.928303,
+ 	0.928273,
+ 	570989,
+ 	40938.1,
+ 	21.3999,
+ 	4.62601,
+ 	3.69647,
+ 	4.00000,
+ 	9563.00,
+ 	30954.5,
+ 	-5635.00,
+ 	-5607.21,
+ 	0.815259,
+ 	0.814923)
+-----------------------------------------------
+| showQofStatTable: Statistical Table for QoF |
+-----------------------------------------------
+|        name |   num |        min |        max |       mean |      stdev |   interval |
+----------------------------------------------------------------------------------------
+|         rSq |     5 |      0.926 |      0.933 |      0.929 |      0.003 |      0.003 |
+|      rSqBar |     5 |      0.926 |      0.933 |      0.929 |      0.003 |      0.003 |
+|         sst |     5 | 545748.641 | 570988.932 | 556801.337 |  11422.577 |  14185.781 |
+|         sse |     5 |  36643.000 |  41895.593 |  39721.016 |   2092.794 |   2599.056 |
+|        mse0 |     5 |     19.155 |     21.900 |     20.764 |      1.094 |      1.359 |
+|        rmse |     5 |      4.377 |      4.680 |      4.555 |      0.121 |      0.150 |
+|         mae |     5 |      3.538 |      3.708 |      3.624 |      0.077 |      0.095 |
+|         dfm |     5 |      4.000 |      4.000 |      4.000 |      0.000 |      0.000 |
+|          df |     5 |   9563.000 |   9563.000 |   9563.000 |      0.000 |      0.000 |
+|       fStat |     5 |  29937.247 |  33216.284 |  31174.062 |   1287.632 |   1599.119 |
+|         aic |     5 |  -5658.048 |  -5531.586 |  -5605.693 |     50.387 |     62.575 |
+|         bic |     5 |  -5630.266 |  -5503.804 |  -5577.910 |     50.387 |     62.575 |
+|        mape |     5 |      0.780 |      0.818 |      0.799 |      0.017 |      0.022 |
+|       smape |     5 |      0.780 |      0.818 |      0.799 |      0.017 |      0.021 |
+----------------------------------------------------------------------------------------
+----------------------------------------
+| Feature Selection Technique: Forward |
+----------------------------------------
+-------------------------------------------------------------------------------------
+| forwardSelAll: (l = 0) INITIAL variable (0, intercept) => cols = LinkedHashSet(0) |
+-------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 478
+ending epoch = (281603.75393355405,400)
+optimize2: bSize = 20, nB = 478
+ending epoch = (678511.4599516417,400)
+optimize2: bSize = 20, nB = 478
+ending epoch = (2037720.8873568526,145)
+optimize2: bSize = 20, nB = 478
+ending epoch = (2363288.642495259,75)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (227141.29438208017,159)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.344,
+ 	-16.1895) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(0.900445,
+ 	0.900435,
+ 	547098,
+ 	54466.2,
+ 	28.4716,
+ 	5.33588,
+ 	4.16537,
+ 	1.00000,
+ 	9566.00,
+ 	86522.0,
+ 	-5914.18,
+ 	-5903.07,
+ 	0.919963,
+ 	0.919803)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (227141.29438208017,-3)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.344,
+ 	-16.1895) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(0.901192,
+ 	0.901182,
+ 	545749,
+ 	53924.2,
+ 	28.1883,
+ 	5.30927,
+ 	4.24389,
+ 	1.00000,
+ 	9566.00,
+ 	87248.2,
+ 	-5904.97,
+ 	-5893.86,
+ 	0.939162,
+ 	0.938491)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (222706.30610053652,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.379,
+ 	-16.1992) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.896030,
+ 	0.896019,
+ 	566517,
+ 	58900.9,
+ 	30.7898,
+ 	5.54886,
+ 	4.38028,
+ 	1.00000,
+ 	9566.00,
+ 	82441.1,
+ 	-5989.52,
+ 	-5978.41,
+ 	0.969279,
+ 	0.968629)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (222706.2971220714,136)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.378,
+ 	-16.1989) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(0.897051,
+ 	0.897040,
+ 	553654,
+ 	56998.1,
+ 	29.7951,
+ 	5.45849,
+ 	4.30447,
+ 	1.00000,
+ 	9566.00,
+ 	83353.8,
+ 	-5957.19,
+ 	-5946.08,
+ 	0.952823,
+ 	0.953182)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (222706.2971220714,-3)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.378,
+ 	-16.1989) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(0.900090,
+ 	0.900079,
+ 	570989,
+ 	57047.6,
+ 	29.8210,
+ 	5.46086,
+ 	4.33567,
+ 	1.00000,
+ 	9566.00,
+ 	86180.0,
+ 	-5958.03,
+ 	-5946.92,
+ 	0.959295,
+ 	0.958634)
+--------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 1) ADD variable (1, AT) => cols = LinkedHashSet(0, 1) @ 0.8989365916069928 |
+--------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 478
+ending epoch = (234836.71515815123,104)
+optimize2: bSize = 20, nB = 478
+ending epoch = (276407.357179991,400)
+optimize2: bSize = 20, nB = 478
+ending epoch = (220294.70347188078,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (177316.33281020206,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.340,
+ 	-17.8414,
+ 	-3.02686) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(0.921426,
+ 	0.921410,
+ 	547098,
+ 	42987.5,
+ 	22.4712,
+ 	4.74038,
+ 	3.73053,
+ 	2.00000,
+ 	9565.00,
+ 	56084.0,
+ 	-5685.56,
+ 	-5668.89,
+ 	0.822317,
+ 	0.822185)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (179076.3424154238,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.413,
+ 	-17.7938,
+ 	-3.01064) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(0.924426,
+ 	0.924410,
+ 	545749,
+ 	41244.3,
+ 	21.5600,
+ 	4.64328,
+ 	3.72554,
+ 	2.00000,
+ 	9565.00,
+ 	58500.0,
+ 	-5647.71,
+ 	-5631.04,
+ 	0.822160,
+ 	0.821768)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (174012.97692681485,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.359,
+ 	-17.8288,
+ 	-2.99640) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.918294,
+ 	0.918277,
+ 	566517,
+ 	46287.6,
+ 	24.1963,
+ 	4.91898,
+ 	3.87386,
+ 	2.00000,
+ 	9565.00,
+ 	53750.9,
+ 	-5757.23,
+ 	-5740.56,
+ 	0.855670,
+ 	0.855179)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (174866.41318699857,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.303,
+ 	-17.8318,
+ 	-3.03211) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(0.917879,
+ 	0.917862,
+ 	553654,
+ 	45466.6,
+ 	23.7672,
+ 	4.87516,
+ 	3.82949,
+ 	2.00000,
+ 	9565.00,
+ 	53454.7,
+ 	-5739.40,
+ 	-5722.73,
+ 	0.845741,
+ 	0.846029)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (174011.9153353875,360)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.365,
+ 	-17.8245,
+ 	-3.00341) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(0.922402,
+ 	0.922385,
+ 	570989,
+ 	44307.8,
+ 	23.1614,
+ 	4.81263,
+ 	3.83037,
+ 	2.00000,
+ 	9565.00,
+ 	56849.0,
+ 	-5714.24,
+ 	-5697.57,
+ 	0.845687,
+ 	0.845210)
+-----------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 2) ADD variable (4, RH) => cols = LinkedHashSet(0, 1, 4) @ 0.9209312344106858 |
+-----------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 478
+ending epoch = (199599.1599010893,400)
+optimize2: bSize = 20, nB = 478
+ending epoch = (220142.49851355015,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (160884.72888211027,201)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.353,
+ 	-15.0840,
+ 	-2.42682,
+ 	-2.88252) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(0.929228,
+ 	0.929206,
+ 	547098,
+ 	38719.0,
+ 	20.2399,
+ 	4.49888,
+ 	3.55065,
+ 	3.00000,
+ 	9564.00,
+ 	41858.4,
+ 	-5583.69,
+ 	-5561.46,
+ 	0.782107,
+ 	0.781903)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (160884.72888211027,-3)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.353,
+ 	-15.0840,
+ 	-2.42682,
+ 	-2.88252) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(0.932600,
+ 	0.932579,
+ 	545749,
+ 	36783.3,
+ 	19.2281,
+ 	4.38499,
+ 	3.53548,
+ 	3.00000,
+ 	9564.00,
+ 	44111.8,
+ 	-5537.29,
+ 	-5515.07,
+ 	0.779775,
+ 	0.779642)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (157613.84438157998,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.367,
+ 	-15.0755,
+ 	-2.41829,
+ 	-2.87449) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.925887,
+ 	0.925864,
+ 	566517,
+ 	41986.1,
+ 	21.9478,
+ 	4.68484,
+ 	3.70187,
+ 	3.00000,
+ 	9564.00,
+ 	39827.6,
+ 	-5661.99,
+ 	-5639.77,
+ 	0.817207,
+ 	0.816837)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (158758.3717150429,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.309,
+ 	-15.0752,
+ 	-2.41757,
+ 	-2.87489) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(0.926179,
+ 	0.926156,
+ 	553654,
+ 	40871.2,
+ 	21.3650,
+ 	4.62223,
+ 	3.62775,
+ 	3.00000,
+ 	9564.00,
+ 	39997.6,
+ 	-5635.27,
+ 	-5613.05,
+ 	0.801130,
+ 	0.801367)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (157613.75110436452,66)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.364,
+ 	-15.0755,
+ 	-2.41858,
+ 	-2.87655) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(0.927887,
+ 	0.927865,
+ 	570989,
+ 	41175.6,
+ 	21.5241,
+ 	4.63941,
+ 	3.70346,
+ 	3.00000,
+ 	9564.00,
+ 	41020.5,
+ 	-5642.57,
+ 	-5620.34,
+ 	0.817162,
+ 	0.816808)
+------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 3) ADD variable (2, V) => cols = LinkedHashSet(0, 1, 4, 2) @ 0.928351843735414 |
+------------------------------------------------------------------------------------------------------
+optimize2: bSize = 20, nB = 478
+ending epoch = (198725.13962642336,400)
+DEBUG @ PredictorMV.crossValidate: fold 0: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (160095.5614663952,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.363,
+ 	-14.7661,
+ 	-2.31368,
+ 	-2.96753,
+ 	0.395827) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 0: qof = 
+MatrixD(0.929401,
+ 	0.929371,
+ 	547098,
+ 	38624.7,
+ 	20.1906,
+ 	4.49340,
+ 	3.56271,
+ 	4.00000,
+ 	9563.00,
+ 	31473.0,
+ 	-5579.30,
+ 	-5551.52,
+ 	0.784542,
+ 	0.784333)
+DEBUG @ PredictorMV.crossValidate: fold 1: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (162047.3192362052,400)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.399,
+ 	-14.7473,
+ 	-2.30539,
+ 	-2.95859,
+ 	0.392278) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 1: qof = 
+MatrixD(0.932805,
+ 	0.932777,
+ 	545749,
+ 	36671.7,
+ 	19.1698,
+ 	4.37833,
+ 	3.54108,
+ 	4.00000,
+ 	9563.00,
+ 	33188.4,
+ 	-5532.29,
+ 	-5504.50,
+ 	0.780688,
+ 	0.780514)
+DEBUG @ PredictorMV.crossValidate: fold 2: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (156812.9436153555,217)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.363,
+ 	-14.7517,
+ 	-2.30509,
+ 	-2.95291,
+ 	0.393402) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 2: qof = 
+MatrixD(0.926046,
+ 	0.926015,
+ 	566517,
+ 	41896.3,
+ 	21.9009,
+ 	4.67984,
+ 	3.70846,
+ 	4.00000,
+ 	9563.00,
+ 	29936.7,
+ 	-5658.06,
+ 	-5630.28,
+ 	0.818256,
+ 	0.817919)
+DEBUG @ PredictorMV.crossValidate: fold 3: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (156812.9436153555,-3)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.363,
+ 	-14.7517,
+ 	-2.30509,
+ 	-2.95291,
+ 	0.393402) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 3: qof = 
+MatrixD(0.926834,
+ 	0.926803,
+ 	553654,
+ 	40508.8,
+ 	21.1755,
+ 	4.60169,
+ 	3.61531,
+ 	4.00000,
+ 	9563.00,
+ 	30284.8,
+ 	-5624.66,
+ 	-5596.87,
+ 	0.798333,
+ 	0.798474)
+DEBUG @ PredictorMV.crossValidate: fold 4: test set size = 1913
+DEBUG @ PredictorMV.validate: test set size = 1913
+optimize2: bSize = 20, nB = 382
+ending epoch = (156812.9436153555,181)
+DEBUG @ PredictorMV.validate: parameters b = b.w = 
+MatrixD(454.363,
+ 	-14.7517,
+ 	-2.30509,
+ 	-2.95291,
+ 	0.393402) 
+ b.b = null
+DEBUG @ PredictorMV.crossValidate: fold 4: qof = 
+MatrixD(0.928304,
+ 	0.928274,
+ 	570989,
+ 	40937.5,
+ 	21.3997,
+ 	4.62598,
+ 	3.69644,
+ 	4.00000,
+ 	9563.00,
+ 	30955.0,
+ 	-5634.98,
+ 	-5607.20,
+ 	0.815249,
+ 	0.814914)
+-----------------------------------------------------------------------------------------------------------
+| forwardSelAll: (l = 4) ADD variable (3, AP) => cols = LinkedHashSet(0, 1, 4, 2, 3) @ 0.9286581228180026 |
+-----------------------------------------------------------------------------------------------------------
+k = 5, n = 5
+Run + title
+x-axis: minX = 0.0, maxX = 4.0
+y-axis: minY = 89.0, maxY = 93.0
+rSq = 
+MatrixD(89.8947,	89.8937,	89.8962,
+ 	92.0948,	92.0931,	92.0886,
+ 	92.8374,	92.8352,	92.8356,
+ 	92.8688,	92.8658,	92.8678)
