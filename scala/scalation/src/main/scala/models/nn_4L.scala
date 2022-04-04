@@ -631,7 +631,7 @@ end nn_4L_reLU_CCPP
 /** The `nn_XL_sigmoid_WineQuality` main function tests the `NeuralNet_XL` class using the
  *  WineQuality dataset.  It tries the sigmoid acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_sigmoid_WineQuality
+ *  > runMain scalation.modeling.neuralnet.nn_4L_sigmoid_WineQuality
  */
 @main def nn_4L_sigmoid_WineQuality (): Unit = 
 
@@ -673,7 +673,7 @@ end nn_4L_sigmoid_WineQuality
 /** The `nn_XL_tanh_WineQuality` main function tests the `NeuralNet_XL` class using the
  *  WineQuality dataset.  It tries the tanh acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_tanh_WineQuality
+ *  > runMain scalation.modeling.neuralnet.nn_4L_tanh_WineQuality
  */
 @main def nn_4L_tanh_WineQuality (): Unit = 
 
@@ -715,7 +715,7 @@ end nn_4L_tanh_WineQuality
 /** The `nn_XL_reLU_WineQuality` main function tests the `NeuralNet_XL` class using the
  *  WineQuality dataset.  It tries the reLU acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_reLU_WineQuality
+ *  > runMain scalation.modeling.neuralnet.nn_4L_reLU_WineQuality
  */
 @main def nn_4L_reLU_WineQuality (): Unit = 
 
