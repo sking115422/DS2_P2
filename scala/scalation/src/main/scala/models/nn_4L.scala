@@ -762,7 +762,7 @@ end nn_4L_reLU_WineQuality
 /** The `nn_XL_sigmoid_BikeSharing` main function tests the `NeuralNet_XL` class using the
  *  BikeSharing dataset.  It tries the sigmoid acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_sigmoid_BikeSharing
+ *  > runMain scalation.modeling.neuralnet.nn_4L_sigmoid_BikeSharing
  */
 @main def nn_4L_sigmoid_BikeSharing (): Unit = 
 
@@ -804,7 +804,7 @@ end nn_4L_sigmoid_BikeSharing
 /** The `nn_XL_tanh_BikeSharing` main function tests the `NeuralNet_XL` class using the
  *  BikeSharing dataset.  It tries the tanh acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_tanh_BikeSharing
+ *  > runMain scalation.modeling.neuralnet.nn_4L_tanh_BikeSharing
  */
 @main def nn_4L_tanh_BikeSharing (): Unit = 
 
@@ -846,7 +846,7 @@ end nn_4L_tanh_BikeSharing
 /** The `nn_XL_reLU_BikeSharing` main function tests the `NeuralNet_XL` class using the
  *  BikeSharing dataset.  It tries the reLU acitvation function. It then cross-validates
  *  and tests forward selection. 
- *  > runMain scalation.modeling.neuralnet.nn_XL_reLU_BikeSharing
+ *  > runMain scalation.modeling.neuralnet.nn_4L_reLU_BikeSharing
  */
 @main def nn_4L_reLU_BikeSharing (): Unit = 
 
